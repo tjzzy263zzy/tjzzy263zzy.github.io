@@ -1,0 +1,443 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8" />
+  
+  <title>jQuery | Keyboarding at night</title>
+  <meta name="author" content="周志尧" />
+
+  
+  <meta name="description" content="代码心得，学习笔记" />
+  
+
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <meta property="og:title" content="jQuery" />
+  <meta property="og:site_name" content="Keyboarding at night" />
+
+  
+  
+
+  
+    <meta property="og:image" content="" />
+  
+
+  
+  <link href="/css/images/favicon.ico" rel="icon" />
+  
+
+  <link rel="alternate" href="/atom.xml" title="Keyboarding at night" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Keyboarding at night</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-01-24T03:39:22.827Z"><a href="/2018/01/24/jQuery/">2018-01-24</a></time>
+      
+      
+  
+    <h1 class="title">jQuery</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="jQuery简介"><a href="#jQuery简介" class="headerlink" title="jQuery简介"></a>jQuery简介</h3><ul>
+<li>jQuery 是一个 JavaScript 凼数库。</li>
+<li>jQuery 极大地简化了 JavaScript 编程。</li>
+<li>jQuery可在jquery.com中下载。</li>
+<li>使用jQuery须将jQuery载入到网页中：<br><code>&lt;script type=&quot;text/javascript&quot; src=&quot;jquery.js&quot;&gt;&lt;/script&gt;</code></li>
+</ul>
+<h3 id="文档就绪函数"><a href="#文档就绪函数" class="headerlink" title="文档就绪函数"></a>文档就绪函数</h3><ul>
+<li><p>写法一：<br><code>$( function () { /* 执行代码*/ } );</code></p>
+</li>
+<li><p>写法二：<br><code>$(document).ready(function(){ /*执行代码 */ });</code></p>
+</li>
+<li><p>思考问题：</p>
+</li>
+</ul>
+<p><code>$( function () { } )</code> 和<code>$(document).ready()</code>与<code>window.onload</code>的区别？</p>
+<blockquote>
+<ul>
+<li><p>jQuery的<code>$(function(){})</code>是<code>$(document).ready(function(){})</code>的简写,代表的是DOM结构加载完毕后就会执行。而<code>window.onload</code>必须等到页面内（包括图片的）所有元素加载到浏览器中后才能执行。<code>window.onload</code>和<code>$(window).load(function(){})</code>是一样的作用。</p>
+</li>
+<li><p>编写个数不同：<code>window.onload</code>不能同时写多个，如果有多个<code>window.onload</code>，则只有最后一个会执行，它会把前面的都覆盖掉。<code>$(document).ready(function(){})</code>则不同，它可以编写多个，并且每一个都会执行。</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="JQuery语法"><a href="#JQuery语法" class="headerlink" title="JQuery语法:"></a>JQuery语法:</h3><p><code>$(selector).action()</code></p>
+<ul>
+<li>美元符号定义 jQuery</li>
+<li>选择符（selector）“查询”和“查找” HTML 元素</li>
+<li>jQuery 的 action() 执行对元素的操作 （方法）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$(this).hide()// - 隐藏当前元素</div><div class="line">$(&quot;p&quot;).hide() //- 隐藏所有段落</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h3><ul>
+<li><p>id：根据给定的id匹配一个元素</p>
+<blockquote>
+<ul>
+<li>例： $(“#test”)选取id为test的元素</li>
+</ul>
+</blockquote>
+</li>
+<li><p>.class：根据给定的类名匹配元素</p>
+<blockquote>
+<ul>
+<li>例：$(“.test”) 选取所有class属性值为test的元素</li>
+</ul>
+</blockquote>
+</li>
+<li><p>element：根据给定的元素名匹配元素</p>
+<blockquote>
+<ul>
+<li>例： $(“div”)选取所有div元素</li>
+</ul>
+</blockquote>
+</li>
+<li><p>selector1,selector2,….. :将每一个选择匹配到的元素合并后一起返回</p>
+<blockquote>
+<ul>
+<li>例： $(“ div,span,p”) 选取所有div，span，p元素</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p><a href="http://www.w3school.com.cn/jquery/jquery_ref_selectors.asp" target="_blank" rel="external">点击查看更多选择器</a></p>
+<h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><blockquote>
+<p>事件处理程序指的是当 HTML 中发生某些事件时所调用的方法</p>
+</blockquote>
+<ul>
+<li><p>鼠标移入/移出事件(hover)</p>
+<ul>
+<li><p>语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(selector).hover(function()&#123;</div><div class="line">//鼠标移入时执行的代码；</div><div class="line">&#125;，function()&#123;</div><div class="line">//鼠标移出时执行的代码；</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(“div”).hover(function()&#123;</div><div class="line">$(“ ul”).slideDown();//鼠标经过div，ul展开</div><div class="line">&#125;,function()&#123;</div><div class="line">$(“ ul”).slideUp();//鼠标移开div，ul收起</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>单击事件(click)</p>
+<ul>
+<li>语法<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(selector).click(function( )&#123;/*单击被选元素时执行的代码*/；&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>获得/失去焦点事件 (focus/blur)</p>
+</li>
+<li>鼠标移入/移出(mouseover/mouseout)</li>
+<li>滚动事件 scroll()</li>
+<li>重置resize()<blockquote>
+<p>以上事件的语法格式均不click事件相同，只需要修改事件名</p>
+</blockquote>
+</li>
+</ul>
+<p><a href="http://www.w3school.com.cn/jquery/jquery_ref_events.asp" target="_blank" rel="external">点击查看更多事件方法</a></p>
+<h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><ul>
+<li><p>显示/隐藏  show()/hide()</p>
+<ul>
+<li><p>语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(selector).hide(speed,callback);</div></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li><p>可选的 speed 参数规定隐藏/显示的速度，可以取以下值：<br>“slow”、 “fast” 或 毫秒。</p>
+</li>
+<li><p>可选的 callback 参数是隐藏或显示完成后所执行的凼数名称。</p>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//无参数：</div><div class="line">$(“div”). hover(function()&#123;</div><div class="line">	$(“p”).show()</div><div class="line">&#125;，function()&#123;</div><div class="line">	$(“p”).hide()</div><div class="line">&#125;)</div><div class="line"></div><div class="line">//有参数：</div><div class="line">$(&quot;div&quot;).hover(function()&#123;</div><div class="line">	$(&quot;p&quot;).show(500,showalert)</div><div class="line">&#125;,function()&#123;</div><div class="line">	$(&quot;p&quot;).hide(500,hidealert)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>下边没有写语法的均不显示/隐藏语法相同，只需改方法名</p>
+</li>
+<li>下边speed,callback没有注释均不以上解释相同</li>
+</ul>
+</li>
+<li><p>显示/隐藏toggle()</p>
+<blockquote>
+<ul>
+<li>toggle() 方法可用来切换hide()和show()</li>
+</ul>
+</blockquote>
+</li>
+<li><p>淡入/淡出fadeIn()/fadeOut()</p>
+</li>
+<li><p>淡入/淡出切换fadeToggle()</p>
+<ul>
+<li>fadeToggle() 方法可以在fadeIn()不fadeOut()方法之间进行切换</li>
+</ul>
+</li>
+<li><p>有透明度的淡入/淡出fadeTo()</p>
+<ul>
+<li><p>语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(selector).fadeTo(speed,opacity,callback);</div></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>speed为必选项 参数规定效果的时长。它可以取以下值：”slow”、”fast” 或毫秒。</li>
+<li>opacity为必选项 参数将淡入淡出效果设置为给定的不透明度：（值介于 0 不 1 之间）。</li>
+<li>可选的 callback 参数是该凼数完成后所执行的凼数名称。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(“div”).fadeTo(“slow”,0.5)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>上/下滑动slideUp()/slideDown()</p>
+</li>
+<li><p>上/下滑动切换slideToggle()</p>
+<blockquote>
+<ul>
+<li>slideToggle() 方法可以在 slideDown() 不 slideUp()方法之间进行切换</li>
+</ul>
+</blockquote>
+</li>
+<li><p>动画animate()</p>
+<ul>
+<li><p>语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(selector).animate(&#123;params&#125;,speed,callback);</div></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>animate() 方法用于创建自定义动画</li>
+<li>必选项 params 参数定义形成动画的 CSS 属性</li>
+<li>speed，callback 参数用法均与上面相同生成动画的过程中可同时使用多个属性</li>
+</ul>
+</blockquote>
+</li>
+<li><p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$(“div”).click(function()&#123;</div><div class="line">	$(this).animate(&#123;</div><div class="line">		width:&quot;500px&quot;,</div><div class="line">		height:&quot;300px&quot;,</div><div class="line">		color:&quot;#fff&quot;</div><div class="line">	&#125;,500)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>停止动画（stop()）</p>
+<ul>
+<li><p>语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(selector).stop(stopAll,goToEnd);</div></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li><p>可选的 stopAll 参数规定是否应该清除动画队列。默认是 false，即仅停止活动的动画，允许任何排入队列的动画向后执行。</p>
+</li>
+<li><p>可选的 goToEnd 参数规定是否立即完成当前动画。默认是 false。</p>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>jQuery stop() 方法用于停止动画或效果，在它们完成之前。</p>
+</li>
+<li>stop() 方法适用于所有 jQuery 效果函数，包括滑动、淡入淡出和自定义动画。</li>
+</ul>
+</li>
+<li><p>延迟delay()</p>
+<ul>
+<li><p>语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(selector).delay(speed,queueName)</div></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>delay() 方法对队列中的下一项的执行设置延迟。speed不上相同，queueName可选。规定队列的名称。默认是 “ fx” ，标准效果队列，一般不用。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(“ div”).show().delay().hide();</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>方法链接(chaining)</p>
+<ul>
+<li><p>chaining是一种链接技术，允许我们在相同的元素上运行多条 jQuery 命令，一条接着另一条</p>
+</li>
+<li><p>例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;div&quot;).css(&quot;background&quot;,&quot;#00f&quot;).slideUp(2000).slideDown(2000);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>$(this)</p>
+<ul>
+<li><p>$(this)：代表的上下文对象是一个jquery的上下文对象，可以调用jquery的方法和属性值。</p>
+</li>
+<li><p>例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$(&quot;#textbox&quot;).hover(function()&#123;</div><div class="line">$(this).css(&quot;width&quot;,&quot;200px&quot;);//等同于$(&quot;#textbox&quot;).css(&quot;width&quot;,&quot;</div><div class="line">&#125;,function()&#123;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/jQuery/">jQuery</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Suche">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">Neueste Artikel</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2018/01/24/jQuery/">jQuery</a>
+      </li>
+    
+      <li>
+        <a href="/2018/01/24/dom_event/">DOM事件</a>
+      </li>
+    
+      <li>
+        <a href="/2018/01/07/dom_node/">DOM节点</a>
+      </li>
+    
+      <li>
+        <a href="/2018/01/06/bom/">BOM</a>
+      </li>
+    
+      <li>
+        <a href="/2017/11/04/bibao/">闭包</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/AJAX-JavaScript-XML-异步/">-AJAX -JavaScript -XML -异步</a><small>0</small></li>
+  
+    <li><a href="/tags/AJAX/">AJAX</a><small>1</small></li>
+  
+    <li><a href="/tags/AJAX-JavaScript-XML-异步/">AJAX JavaScript XML 异步</a><small>0</small></li>
+  
+    <li><a href="/tags/BOM/">BOM</a><small>1</small></li>
+  
+    <li><a href="/tags/DOM/">DOM</a><small>2</small></li>
+  
+    <li><a href="/tags/JavaScript/">JavaScript</a><small>1</small></li>
+  
+    <li><a href="/tags/Markdown/">Markdown</a><small>1</small></li>
+  
+    <li><a href="/tags/XML/">XML</a><small>0</small></li>
+  
+    <li><a href="/tags/jQuery/">jQuery</a><small>1</small></li>
+  
+    <li><a href="/tags/异步/">异步</a><small>0</small></li>
+  
+    <li><a href="/tags/闭包/">闭包</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">Tag-Cloud</h3>
+  <div class="entry">
+    <a href="/tags/AJAX/" style="font-size: 10px;">AJAX</a> <a href="/tags/BOM/" style="font-size: 10px;">BOM</a> <a href="/tags/DOM/" style="font-size: 20px;">DOM</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a>
+  </div>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  <p>
+  
+  &copy; 2018 周志尧
+  
+  All rights reserved.</p>
+  <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</div>
+<div class="clearfix"></div>
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id='bg'></div>
+  
+    <script type="text/javascript" src="/live2d/script.js"></script>
+    <canvas id="live2dcanvas" width="150" height="300" class="live2d"></canvas>
+    <style>
+      #live2dcanvas {
+        position: fixed;
+        right: 0px;
+        z-index: 999;
+        pointer-events: none;
+        bottom: -60px;
+      }
+    </style>
+    <script>loadlive2d("live2dcanvas" ,"/live2d/assets/wanko/wanko.model.json",0.5)</script>
+  
+</body>
+</html>

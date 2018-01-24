@@ -1,0 +1,303 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8" />
+  
+  <title>BOM | Keyboarding at night</title>
+  <meta name="author" content="周志尧" />
+
+  
+  <meta name="description" content="代码心得，学习笔记" />
+  
+
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <meta property="og:title" content="BOM" />
+  <meta property="og:site_name" content="Keyboarding at night" />
+
+  
+  
+
+  
+    <meta property="og:image" content="" />
+  
+
+  
+  <link href="/css/images/favicon.ico" rel="icon" />
+  
+
+  <link rel="alternate" href="/atom.xml" title="Keyboarding at night" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Keyboarding at night</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-01-05T16:00:00.000Z"><a href="/2018/01/06/bom/">2018-01-06</a></time>
+      
+      
+  
+    <h1 class="title">BOM</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="BOM常用对象方法"><a href="#BOM常用对象方法" class="headerlink" title="BOM常用对象方法"></a>BOM常用对象方法</h3><p>屏幕的有效宽：window.screen.availHeight<br>屏幕的有效高：window.screen.availWidth<br>网页可见区域宽：document.body.clientWidth<br>网页可见区域高：document.body.clientHeight<br>网页可见区域宽：document.body.offsetWidth (包括边线的宽)<br>网页可见区域高：document.body.offsetHeight (包括边线的宽)<br>网页正文全文宽：document.body.scrollWidth<br>网页正文全文高：document.body.scrollHeight<br>网页被卷去的高：document.body.scrollTop<br>网页被卷去的左：document.body.scrollLeft<br>网页正文部分上：window.screenTop<br>网页正文部分左：window.screenLeft<br>屏幕分辨率的高：window.screen.height<br>屏幕分辨率的宽：window.screen.width<br>屏幕可用工作区高度：window.screen.availHeight<br>屏幕可用工作区宽度：window.screen.availWidth<br>HTML精确定位:scrollLeft,scrollWidth,clientWidth,offsetWidth<br>scrollHeight: 获取对象的滚动高度。<br>scrollLeft:设置或获取位于对象左边界和窗口中目前可见内容的最左端之间的距离<br>scrollTop:设置或获取位于对象最顶端和窗口中可见内容的最顶端之间的距离<br>scrollWidth:获取对象的滚动宽度<br>offsetHeight:获取对象相对于版面或由父坐标 offsetParent 属性指定的父坐标的高度<br>offsetLeft:获取对象相对于版面或由 offsetParent 属性指定的父坐标的计算左侧位置<br>offsetTop:获取对象相对于版面或由 offsetTop 属性指定的父坐标的计算顶端位置<br>event.clientX 相对文档的水平座标<br>event.clientY 相对文档的垂直座标<br>event.offsetX 相对容器的水平坐标<br>event.offsetY 相对容器的垂直坐标<br>document.documentElement.scrollTop 垂直方向滚动的值<br>event.clientX+document.documentElement.scrollTop 相对文档的水平座标+垂直方向滚动的量<br>IE，FireFox 差异如下：<br>IE6.0、FF1.06+：<br>clientWidth = width + padding<br>clientHeight = height + padding<br>offsetWidth = width + padding + border<br>offsetHeight = height + padding + border<br>IE5.0/5.5：<br>clientWidth = width - border<br>clientHeight = height - border<br>offsetWidth = width<br>offsetHeight = height</p>
+<p>获取元素的宽高<br>var o = document.getElementById(“view”);<br>var h = o.offsetHeight; //高度<br>var w = o.offsetWidth; //宽度</p>
+<h3 id="Window-对象"><a href="#Window-对象" class="headerlink" title="Window 对象"></a>Window 对象</h3><h4 id="Window-对象表示浏览器中打开的窗口。如果文档包含框架（frame-或-iframe-标签），浏览器会为-HTML-文档创建一个-window-对象，并为每个框架创建一个额外的-window-对象"><a href="#Window-对象表示浏览器中打开的窗口。如果文档包含框架（frame-或-iframe-标签），浏览器会为-HTML-文档创建一个-window-对象，并为每个框架创建一个额外的-window-对象" class="headerlink" title="Window 对象表示浏览器中打开的窗口。如果文档包含框架（frame 或 iframe 标签），浏览器会为 HTML 文档创建一个 window 对象，并为每个框架创建一个额外的 window 对象"></a>Window 对象表示浏览器中打开的窗口。如果文档包含框架（frame 或 iframe 标签），浏览器会为 HTML 文档创建一个 window 对象，并为每个框架创建一个额外的 window 对象</h4><h4 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h4><blockquote>
+<ul>
+<li>innerHeight 返回窗口的文档显示区的高度</li>
+<li>innerWidth 返回窗口的文档显示区的宽度</li>
+<li>outerHeight 返回窗口的外部高度 包括滚动条、地址栏、收藏栏等</li>
+<li>outerwidth 返回窗口的外部宽度</li>
+<li>length 设置或返回窗口中的框架数量</li>
+<li>name 设置或返回窗口的名称。</li>
+<li>window.open() 打开的新网页，第二个参数就是此网页的name。</li>
+<li>iframe里面，name属性就是window的name</li>
+</ul>
+</blockquote>
+<h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><blockquote>
+<ul>
+<li>close() 关闭浏览器窗口</li>
+<li>alert() 显示带有一段消息和一个确认按钮的警告框</li>
+<li>confirm() 显示带有一段消息以及确认按钮和取消按钮的对话框</li>
+<li>prompt()显示可提示用户输入的对话框</li>
+<li>open() 打开一个新的浏览器窗口或查找一个已命名的窗口</li>
+<li>resizeBy() 按照指定的像素调整窗口的大小</li>
+<li>resizeTo() 把窗口的大小调整到指定的宽度和高度</li>
+<li>scrollBy() 按照指定的像素值来滚动内容</li>
+<li>scrollTo() 把内容滚动到指定的坐标</li>
+</ul>
+</blockquote>
+<h4 id="screen-对象包含有关客户端显示屏幕的信息"><a href="#screen-对象包含有关客户端显示屏幕的信息" class="headerlink" title="screen 对象包含有关客户端显示屏幕的信息"></a>screen 对象包含有关客户端显示屏幕的信息</h4><h4 id="属性-1"><a href="#属性-1" class="headerlink" title="属性"></a>属性</h4><blockquote>
+<ul>
+<li>height 返回显示屏幕的高度； width返回显示器屏幕的宽度</li>
+<li>availHeight 返回显示屏幕的高度 (除 Windows 任务栏之外)</li>
+<li>availWidth 返回显示屏幕的宽度 (除 Windows 任务栏之外)</li>
+<li>colorDepth 返回目标设备或缓冲器上的调色板的比特深度</li>
+<li>pixelDepth 返回显示屏幕的颜色分辨率（比特每像素）</li>
+</ul>
+</blockquote>
+<h3 id="Body对象"><a href="#Body对象" class="headerlink" title="Body对象"></a>Body对象</h3><h4 id="属性-2"><a href="#属性-2" class="headerlink" title="属性"></a>属性</h4><blockquote>
+<ul>
+<li>clientWidth网页可见区域宽</li>
+<li>clientHeight网页可见区域高</li>
+<li>scrollWidth网页正文全文宽</li>
+<li>scrollHeight网页正文全文高</li>
+<li>scrollTop网页被卷去的高</li>
+<li>scrollLeft网页被卷去的左</li>
+</ul>
+</blockquote>
+<h3 id="navigator对象"><a href="#navigator对象" class="headerlink" title="navigator对象"></a>navigator对象</h3><h4 id="navigator对象通常用于检测浏览器不操作系统的版本"><a href="#navigator对象通常用于检测浏览器不操作系统的版本" class="headerlink" title="navigator对象通常用于检测浏览器不操作系统的版本"></a>navigator对象通常用于检测浏览器不操作系统的版本</h4><h4 id="属性："><a href="#属性：" class="headerlink" title="属性："></a>属性：</h4><blockquote>
+<ul>
+<li>appCodeName返回浏览器的代码名</li>
+<li>appVersion返回浏览器的次级版本</li>
+<li>appName返回浏览器的名称</li>
+<li>language返回当前浏览器的语言</li>
+<li>platform 返回运行浏览器的操作系统平台</li>
+</ul>
+</blockquote>
+<h3 id="document对象"><a href="#document对象" class="headerlink" title="document对象"></a>document对象</h3><h4 id="document-对象是-Window-对象的一部分，包含整个htmlDOM-可通过-window-document-属性对其进行访问-也可以用document直接访问"><a href="#document-对象是-Window-对象的一部分，包含整个htmlDOM-可通过-window-document-属性对其进行访问-也可以用document直接访问" class="headerlink" title="document 对象是 Window 对象的一部分，包含整个htmlDOM,可通过 window.document 属性对其进行访问,也可以用document直接访问"></a>document 对象是 Window 对象的一部分，包含整个htmlDOM,可通过 window.document 属性对其进行访问,也可以用document直接访问</h4><h4 id="属性-3"><a href="#属性-3" class="headerlink" title="属性:"></a>属性:</h4><blockquote>
+<ul>
+<li>document.cookie 获取或设置cookie</li>
+<li>document.title 获取或设置title</li>
+<li>document.URL 获取或设置URL</li>
+</ul>
+</blockquote>
+<h3 id="Location-对象"><a href="#Location-对象" class="headerlink" title="Location 对象"></a>Location 对象</h3><h4 id="Location-对象对象包含有关当前-URL-的信息"><a href="#Location-对象对象包含有关当前-URL-的信息" class="headerlink" title="Location 对象对象包含有关当前 URL 的信息"></a>Location 对象对象包含有关当前 URL 的信息</h4><h4 id="属性-4"><a href="#属性-4" class="headerlink" title="属性"></a>属性</h4><blockquote>
+<ul>
+<li>hash设置或返回从井号 (#) 开始的 URL（锚）</li>
+<li>host设置或返回主机名和当前 URL 的端口号</li>
+<li>hostname设置或返回当前 URL 的主机名</li>
+<li>href设置或返回完整的 URL</li>
+<li>pathname设置或返回当前 URL 的路径部分</li>
+<li>port设置或返回当前 URL 的端口号</li>
+<li>protocol设置或返回当前 URL 的协议</li>
+<li>search设置或返回从问号 (?) 开始的 URL（查询部分）</li>
+</ul>
+</blockquote>
+<h4 id="方法-1"><a href="#方法-1" class="headerlink" title="方法"></a>方法</h4><blockquote>
+<ul>
+<li>assign() 加载新的文档</li>
+<li>reload() 重新加载当前文档</li>
+<li>replace() 用新的文档替换当前文档</li>
+</ul>
+</blockquote>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/BOM/">BOM</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Suche">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">Neueste Artikel</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2018/01/24/jQuery/">jQuery</a>
+      </li>
+    
+      <li>
+        <a href="/2018/01/24/dom_event/">DOM事件</a>
+      </li>
+    
+      <li>
+        <a href="/2018/01/07/dom_node/">DOM节点</a>
+      </li>
+    
+      <li>
+        <a href="/2018/01/06/bom/">BOM</a>
+      </li>
+    
+      <li>
+        <a href="/2017/11/04/bibao/">闭包</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/AJAX-JavaScript-XML-异步/">-AJAX -JavaScript -XML -异步</a><small>0</small></li>
+  
+    <li><a href="/tags/AJAX/">AJAX</a><small>1</small></li>
+  
+    <li><a href="/tags/AJAX-JavaScript-XML-异步/">AJAX JavaScript XML 异步</a><small>0</small></li>
+  
+    <li><a href="/tags/BOM/">BOM</a><small>1</small></li>
+  
+    <li><a href="/tags/DOM/">DOM</a><small>2</small></li>
+  
+    <li><a href="/tags/JavaScript/">JavaScript</a><small>1</small></li>
+  
+    <li><a href="/tags/Markdown/">Markdown</a><small>1</small></li>
+  
+    <li><a href="/tags/XML/">XML</a><small>0</small></li>
+  
+    <li><a href="/tags/jQuery/">jQuery</a><small>1</small></li>
+  
+    <li><a href="/tags/异步/">异步</a><small>0</small></li>
+  
+    <li><a href="/tags/闭包/">闭包</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">Tag-Cloud</h3>
+  <div class="entry">
+    <a href="/tags/AJAX/" style="font-size: 10px;">AJAX</a> <a href="/tags/BOM/" style="font-size: 10px;">BOM</a> <a href="/tags/DOM/" style="font-size: 20px;">DOM</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a>
+  </div>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  <p>
+  
+  &copy; 2018 周志尧
+  
+  All rights reserved.</p>
+  <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</div>
+<div class="clearfix"></div>
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id='bg'></div>
+  
+    <script type="text/javascript" src="/live2d/script.js"></script>
+    <canvas id="live2dcanvas" width="150" height="300" class="live2d"></canvas>
+    <style>
+      #live2dcanvas {
+        position: fixed;
+        right: 0px;
+        z-index: 999;
+        pointer-events: none;
+        bottom: -60px;
+      }
+    </style>
+    <script>loadlive2d("live2dcanvas" ,"/live2d/assets/wanko/wanko.model.json",0.5)</script>
+  
+</body>
+</html>

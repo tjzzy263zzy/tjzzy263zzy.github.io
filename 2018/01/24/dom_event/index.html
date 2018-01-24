@@ -1,0 +1,260 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8" />
+  
+  <title>DOM事件 | Keyboarding at night</title>
+  <meta name="author" content="周志尧" />
+
+  
+  <meta name="description" content="代码心得，学习笔记" />
+  
+
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <meta property="og:title" content="DOM事件" />
+  <meta property="og:site_name" content="Keyboarding at night" />
+
+  
+  
+
+  
+    <meta property="og:image" content="" />
+  
+
+  
+  <link href="/css/images/favicon.ico" rel="icon" />
+  
+
+  <link rel="alternate" href="/atom.xml" title="Keyboarding at night" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Keyboarding at night</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-01-24T03:14:07.488Z"><a href="/2018/01/24/dom_event/">2018-01-24</a></time>
+      
+      
+  
+    <h1 class="title">DOM事件</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="DOM事件常用方法"><a href="#DOM事件常用方法" class="headerlink" title="DOM事件常用方法"></a>DOM事件常用方法</h3><ul>
+<li><p>鼠标事件</p>
+<blockquote>
+<ul>
+<li>onchange    用户改变域的内容    </li>
+<li>onclick    鼠标点击某个对象</li>
+<li>ondblclick    鼠标双击某个对象</li>
+<li>onmousedown    某个鼠标按键被按下</li>
+<li>onmousemove    鼠标被移动</li>
+<li>onmouseout    鼠标从某元素移开</li>
+<li>onmouseover    鼠标被移到某元素之上</li>
+<li>onmouseup    某个鼠标按键被松开</li>
+<li>onfocus    元素获得焦点</li>
+<li>onblur    元素失去焦点</li>
+<li>onreset    重置按钮被点击</li>
+<li>onresize    窗口或框架被调整尺寸</li>
+<li>onselect    文本被选定</li>
+<li>onsubmit    提交按钮被点击</li>
+<li>onload    某个页面或图像被完成加载</li>
+<li>onerror    当加载文档或图像时发生某个错误</li>
+</ul>
+</blockquote>
+</li>
+<li><p>键盘事件</p>
+<blockquote>
+<ul>
+<li>onkeydown    某个键盘的键被按下</li>
+<li>onkeyup    某个键盘的键被松开</li>
+<li>onkeypress    某个键盘的键被按下或按住</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">      document.onkeydown=function(event)&#123;</div><div class="line">            var e = event || window.event || arguments.callee.caller.arguments[0];</div><div class="line">             if(e &amp;&amp; e.keyCode==27)&#123; // 按 Esc </div><div class="line">                //要做的事情</div><div class="line">             &#125;</div><div class="line">             if(e &amp;&amp; e.keyCode==113)&#123; // 按 F2 </div><div class="line">                 //要做的事情</div><div class="line">                &#125;            </div><div class="line">             if(e &amp;&amp; e.keyCode==13)&#123; // enter 键</div><div class="line">                  //要做的事情</div><div class="line">           &#125;</div><div class="line">        &#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>keyCode码：只要你定义了这些键的动作，你在浏览器里按下这些键就会响应，兼容目前所有浏览器。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div></pre></td><td class="code"><pre><div class="line">keyCode 8 = BackSpace BackSpace</div><div class="line">keyCode 9 = Tab Tab</div><div class="line">keyCode 12 = Clear</div><div class="line">keyCode 13 = Enter</div><div class="line">keyCode 16 = Shift_L</div><div class="line">keyCode 17 = Control_L</div><div class="line">keyCode 18 = Alt_L</div><div class="line">keyCode 19 = Pause</div><div class="line">keyCode 20 = Caps_Lock</div><div class="line">keyCode 27 = Escape Escape</div><div class="line">keyCode 32 = space</div><div class="line">keyCode 33 = Prior</div><div class="line">keyCode 34 = Next</div><div class="line">keyCode 35 = End</div><div class="line">keyCode 36 = Home</div><div class="line">keyCode 37 = Left</div><div class="line">keyCode 38 = Up</div><div class="line">keyCode 39 = Right</div><div class="line">keyCode 40 = Down</div><div class="line">keyCode 41 = Select</div><div class="line">keyCode 42 = Print</div><div class="line">keyCode 43 = Execute</div><div class="line">keyCode 45 = Insert</div><div class="line">keyCode 46 = Delete</div><div class="line">keyCode 47 = Help</div><div class="line">keyCode 48 = 0 equal braceright</div><div class="line">keyCode 49 = 1 exclam onesuperior</div><div class="line">keyCode 50 = 2 quotedbl twosuperior</div><div class="line">keyCode 51 = 3 section threesuperior</div><div class="line">keyCode 52 = 4 dollar</div><div class="line">keyCode 53 = 5 percent</div><div class="line">keyCode 54 = 6 ampersand</div><div class="line">keyCode 55 = 7 slash braceleft</div><div class="line">keyCode 56 = 8 parenleft bracketleft</div><div class="line">keyCode 57 = 9 parenright bracketright</div><div class="line">keyCode 65 = a A</div><div class="line">keyCode 66 = b B</div><div class="line">keyCode 67 = c C</div><div class="line">keyCode 68 = d D</div><div class="line">keyCode 69 = e E EuroSign</div><div class="line">keyCode 70 = f F</div><div class="line">keyCode 71 = g G</div><div class="line">keyCode 72 = h H</div><div class="line">keyCode 73 = i I</div><div class="line">keyCode 74 = j J</div><div class="line">keyCode 75 = k K</div><div class="line">keyCode 76 = l L</div><div class="line">keyCode 77 = m M mu</div><div class="line">keyCode 78 = n N</div><div class="line">keyCode 79 = o O</div><div class="line">keyCode 80 = p P</div><div class="line">keyCode 81 = q Q at</div><div class="line">keyCode 82 = r R</div><div class="line">keyCode 83 = s S</div><div class="line">keyCode 84 = t T</div><div class="line">keyCode 85 = u U</div><div class="line">keyCode 86 = v V</div><div class="line">keyCode 87 = w W</div><div class="line">keyCode 88 = x X</div><div class="line">keyCode 89 = y Y</div><div class="line">keyCode 90 = z Z</div><div class="line">keyCode 96 = KP_0 KP_0</div><div class="line">keyCode 97 = KP_1 KP_1</div><div class="line">keyCode 98 = KP_2 KP_2</div><div class="line">keyCode 99 = KP_3 KP_3</div><div class="line">keyCode 100 = KP_4 KP_4</div><div class="line">keyCode 101 = KP_5 KP_5</div><div class="line">keyCode 102 = KP_6 KP_6</div><div class="line">keyCode 103 = KP_7 KP_7</div><div class="line">keyCode 104 = KP_8 KP_8</div><div class="line">keyCode 105 = KP_9 KP_9</div><div class="line">keyCode 106 = KP_Multiply KP_Multiply</div><div class="line">keyCode 107 = KP_Add KP_Add</div><div class="line">keyCode 108 = KP_Separator KP_Separator</div><div class="line">keyCode 109 = KP_Subtract KP_Subtract</div><div class="line">keyCode 110 = KP_Decimal KP_Decimal</div><div class="line">keyCode 111 = KP_Divide KP_Divide</div><div class="line">keyCode 112 = F1</div><div class="line">keyCode 113 = F2</div><div class="line">keyCode 114 = F3</div><div class="line">keyCode 115 = F4</div><div class="line">keyCode 116 = F5</div><div class="line">keyCode 117 = F6</div><div class="line">keyCode 118 = F7</div><div class="line">keyCode 119 = F8</div><div class="line">keyCode 120 = F9</div><div class="line">keyCode 121 = F10</div><div class="line">keyCode 122 = F11</div><div class="line">keyCode 123 = F12</div><div class="line">keyCode 124 = F13</div><div class="line">keyCode 125 = F14</div><div class="line">keyCode 126 = F15</div><div class="line">keyCode 127 = F16</div><div class="line">keyCode 128 = F17</div><div class="line">keyCode 129 = F18</div><div class="line">keyCode 130 = F19</div><div class="line">keyCode 131 = F20</div><div class="line">keyCode 132 = F21</div><div class="line">keyCode 133 = F22</div><div class="line">keyCode 134 = F23</div><div class="line">keyCode 135 = F24</div><div class="line">keyCode 136 = Num_Lock</div><div class="line">keyCode 137 = Scroll_Lock</div><div class="line">keyCode 187 = acute grave</div><div class="line">keyCode 188 = comma semicolon</div><div class="line">keyCode 189 = minus underscore</div><div class="line">keyCode 190 = period colon</div><div class="line">keyCode 192 = numbersign apostrophe</div><div class="line">keyCode 210 = plusminus hyphen macron</div><div class="line">keyCode 211 =</div><div class="line">keyCode 212 = copyright registered</div><div class="line">keyCode 213 = guillemotleft guillemotright</div><div class="line">keyCode 214 = masculine ordfeminine</div><div class="line">keyCode 215 = ae AE</div><div class="line">keyCode 216 = cent yen</div><div class="line">keyCode 217 = questiondown exclamdown</div><div class="line">keyCode 218 = onequarter onehalf threequarters</div><div class="line">keyCode 220 = less greater bar</div><div class="line">keyCode 221 = plus asterisk asciitilde</div><div class="line">keyCode 227 = multiply division</div><div class="line">keyCode 228 = acircumflex Acircumflex</div><div class="line">keyCode 229 = ecircumflex Ecircumflex</div><div class="line">keyCode 230 = icircumflex Icircumflex</div><div class="line">keyCode 231 = ocircumflex Ocircumflex</div><div class="line">keyCode 232 = ucircumflex Ucircumflex</div><div class="line">keyCode 233 = ntilde Ntilde</div><div class="line">keyCode 234 = yacute Yacute</div><div class="line">keyCode 235 = oslash Ooblique</div><div class="line">keyCode 236 = aring Aring</div><div class="line">keyCode 237 = ccedilla Ccedilla</div><div class="line">keyCode 238 = thorn THORN</div><div class="line">keyCode 239 = eth ETH</div><div class="line">keyCode 240 = diaeresis cedilla currency</div><div class="line">keyCode 241 = agrave Agrave atilde Atilde</div><div class="line">keyCode 242 = egrave Egrave</div><div class="line">keyCode 243 = igrave Igrave</div><div class="line">keyCode 244 = ograve Ograve otilde Otilde</div><div class="line">keyCode 245 = ugrave Ugrave</div><div class="line">keyCode 246 = adiaeresis Adiaeresis</div><div class="line">keyCode 247 = ediaeresis Ediaeresis</div><div class="line">keyCode 248 = idiaeresis Idiaeresis</div><div class="line">keyCode 249 = odiaeresis Odiaeresis</div><div class="line">keyCode 250 = udiaeresis Udiaeresis</div><div class="line">keyCode 251 = ssharp question backslash</div><div class="line">keyCode 252 = asciicircum degree</div><div class="line">keyCode 253 = 3 sterling</div><div class="line">keyCode 254 = Mode_switch</div></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/DOM/">DOM</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Suche">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">Neueste Artikel</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2018/01/24/jQuery/">jQuery</a>
+      </li>
+    
+      <li>
+        <a href="/2018/01/24/dom_event/">DOM事件</a>
+      </li>
+    
+      <li>
+        <a href="/2018/01/07/dom_node/">DOM节点</a>
+      </li>
+    
+      <li>
+        <a href="/2018/01/06/bom/">BOM</a>
+      </li>
+    
+      <li>
+        <a href="/2017/11/04/bibao/">闭包</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/AJAX-JavaScript-XML-异步/">-AJAX -JavaScript -XML -异步</a><small>0</small></li>
+  
+    <li><a href="/tags/AJAX/">AJAX</a><small>1</small></li>
+  
+    <li><a href="/tags/AJAX-JavaScript-XML-异步/">AJAX JavaScript XML 异步</a><small>0</small></li>
+  
+    <li><a href="/tags/BOM/">BOM</a><small>1</small></li>
+  
+    <li><a href="/tags/DOM/">DOM</a><small>2</small></li>
+  
+    <li><a href="/tags/JavaScript/">JavaScript</a><small>1</small></li>
+  
+    <li><a href="/tags/Markdown/">Markdown</a><small>1</small></li>
+  
+    <li><a href="/tags/XML/">XML</a><small>0</small></li>
+  
+    <li><a href="/tags/jQuery/">jQuery</a><small>1</small></li>
+  
+    <li><a href="/tags/异步/">异步</a><small>0</small></li>
+  
+    <li><a href="/tags/闭包/">闭包</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">Tag-Cloud</h3>
+  <div class="entry">
+    <a href="/tags/AJAX/" style="font-size: 10px;">AJAX</a> <a href="/tags/BOM/" style="font-size: 10px;">BOM</a> <a href="/tags/DOM/" style="font-size: 20px;">DOM</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a>
+  </div>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  <p>
+  
+  &copy; 2018 周志尧
+  
+  All rights reserved.</p>
+  <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</div>
+<div class="clearfix"></div>
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id='bg'></div>
+  
+    <script type="text/javascript" src="/live2d/script.js"></script>
+    <canvas id="live2dcanvas" width="150" height="300" class="live2d"></canvas>
+    <style>
+      #live2dcanvas {
+        position: fixed;
+        right: 0px;
+        z-index: 999;
+        pointer-events: none;
+        bottom: -60px;
+      }
+    </style>
+    <script>loadlive2d("live2dcanvas" ,"/live2d/assets/wanko/wanko.model.json",0.5)</script>
+  
+</body>
+</html>

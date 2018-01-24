@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Archiv: 2017 | Keyboarding at night</title>
+  <title>闭包 | Keyboarding at night</title>
   <meta name="author" content="周志尧" />
 
   
@@ -14,7 +14,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-  
+  <meta property="og:title" content="闭包" />
   <meta property="og:site_name" content="Keyboarding at night" />
 
   
@@ -57,61 +57,78 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title">2017</h2>
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-11-03T16:00:00.000Z"><a href="/2017/11/04/bibao/">2017-11-04</a></time>
+      
+      
+  
+    <h1 class="title">闭包</h1>
+  
 
+    </header>
+    <div class="entry">
+      
+        <h3 id="什么是闭包？"><a href="#什么是闭包？" class="headerlink" title="什么是闭包？"></a>什么是闭包？</h3><blockquote>
+<ul>
+<li><p>从本意上来讲：就是封闭包裹的意思，而js中函数正好就是一个封闭包裹的空间，所以从广义上来讲认为任何一个函数都是一个闭包</p>
+</li>
+<li><p>从狭义上来讲：就是某个函数可以访问它外层的函数中定义的变量，认为这个函数就是一个闭包函数</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="在函数外部自然无法读取函数内的局部变量，如何从外部读取局部变量？"><a href="#在函数外部自然无法读取函数内的局部变量，如何从外部读取局部变量？" class="headerlink" title="在函数外部自然无法读取函数内的局部变量，如何从外部读取局部变量？"></a>在函数外部自然无法读取函数内的局部变量，如何从外部读取局部变量？</h3><blockquote>
+<ul>
+<li>在函数的内部，再定义一个函数，并把内部函数作为返回值，这样就能从外部访问函数内部变量了</li>
+</ul>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function f1()&#123;</div><div class="line">n=999;</div><div class="line">function f2()&#123;</div><div class="line">alert(n);</div><div class="line">&#125;</div><div class="line">return f2;</div><div class="line">&#125;</div><div class="line">var result=f1();</div><div class="line">result(); // 999</div></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>闭包就是能够读取其他函数内部变量的函数</li>
+</ul>
+</blockquote>
+<h3 id="闭包的用途"><a href="#闭包的用途" class="headerlink" title="闭包的用途:"></a>闭包的用途:</h3><blockquote>
+<ul>
+<li>读取函数内部的变量</li>
+<li>让这些变量的值始终保持在内存中(优缺共存)</li>
+<li>避免全局变量的污染</li>
+</ul>
+</blockquote>
+<h3 id="使用闭包时的注意点"><a href="#使用闭包时的注意点" class="headerlink" title="使用闭包时的注意点"></a>使用闭包时的注意点</h3><blockquote>
+<ul>
+<li>由于闭包会使得函数中的变量都被保存在内存中，内存消耗很大，所以不能滥用闭包，否则会造成网页的性能问题，在IE中可能导致内存泄露。解决方法是，在退出函数之前，将不使用的局部变量全部删除。</li>
+<li>闭包会在父函数外部，改变父函数内部变量的值。所以，如果你把父函数当作对象（object）使用，把闭包当作它的公用方法（Public Method），把内部变量当作它的私有属性（private value），这时一定要小心，不要随便改变父函数内部变量的值</li>
+</ul>
+</blockquote>
 
-  <div class="archive">
+      
+    </div>
     
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2017-11-03T16:00:00.000Z"><a href="/2017/11/04/bibao/">2017-11-04</a></time>
-            
-              <h1 class="title"><a href="/2017/11/04/bibao/">闭包</a></h1>
-            
-          </header>
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
         </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2017-10-13T16:00:00.000Z"><a href="/2017/10/14/Ajax/">2017-10-14</a></time>
-            
-              <h1 class="title"><a href="/2017/10/14/Ajax/">AJAX</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2017-10-11T16:00:00.000Z"><a href="/2017/10/12/markdown/">2017-10-12</a></time>
-            
-              <h1 class="title"><a href="/2017/10/12/markdown/">Markdown</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2017-10-11T16:00:00.000Z"><a href="/2017/10/12/hello-world/">2017-10-12</a></time>
-            
-              <h1 class="title"><a href="/2017/10/12/hello-world/">Hello World</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/闭包/">闭包</a>
   </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">

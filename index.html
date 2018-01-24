@@ -64,6 +64,644 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2018-01-24T03:39:22.827Z"><a href="/2018/01/24/jQuery/">2018-01-24</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2018/01/24/jQuery/">jQuery</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="jQuery简介"><a href="#jQuery简介" class="headerlink" title="jQuery简介"></a>jQuery简介</h3><ul>
+<li>jQuery 是一个 JavaScript 凼数库。</li>
+<li>jQuery 极大地简化了 JavaScript 编程。</li>
+<li>jQuery可在jquery.com中下载。</li>
+<li>使用jQuery须将jQuery载入到网页中：<br><code>&lt;script type=&quot;text/javascript&quot; src=&quot;jquery.js&quot;&gt;&lt;/script&gt;</code></li>
+</ul>
+<h3 id="文档就绪函数"><a href="#文档就绪函数" class="headerlink" title="文档就绪函数"></a>文档就绪函数</h3><ul>
+<li><p>写法一：<br><code>$( function () { /* 执行代码*/ } );</code></p>
+</li>
+<li><p>写法二：<br><code>$(document).ready(function(){ /*执行代码 */ });</code></p>
+</li>
+<li><p>思考问题：</p>
+</li>
+</ul>
+<p><code>$( function () { } )</code> 和<code>$(document).ready()</code>与<code>window.onload</code>的区别？</p>
+<blockquote>
+<ul>
+<li><p>jQuery的<code>$(function(){})</code>是<code>$(document).ready(function(){})</code>的简写,代表的是DOM结构加载完毕后就会执行。而<code>window.onload</code>必须等到页面内（包括图片的）所有元素加载到浏览器中后才能执行。<code>window.onload</code>和<code>$(window).load(function(){})</code>是一样的作用。</p>
+</li>
+<li><p>编写个数不同：<code>window.onload</code>不能同时写多个，如果有多个<code>window.onload</code>，则只有最后一个会执行，它会把前面的都覆盖掉。<code>$(document).ready(function(){})</code>则不同，它可以编写多个，并且每一个都会执行。</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="JQuery语法"><a href="#JQuery语法" class="headerlink" title="JQuery语法:"></a>JQuery语法:</h3><p><code>$(selector).action()</code></p>
+<ul>
+<li>美元符号定义 jQuery</li>
+<li>选择符（selector）“查询”和“查找” HTML 元素</li>
+<li>jQuery 的 action() 执行对元素的操作 （方法）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$(this).hide()// - 隐藏当前元素</div><div class="line">$(&quot;p&quot;).hide() //- 隐藏所有段落</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h3><ul>
+<li><p>id：根据给定的id匹配一个元素</p>
+<blockquote>
+<ul>
+<li>例： $(“#test”)选取id为test的元素</li>
+</ul>
+</blockquote>
+</li>
+<li><p>.class：根据给定的类名匹配元素</p>
+<blockquote>
+<ul>
+<li>例：$(“.test”) 选取所有class属性值为test的元素</li>
+</ul>
+</blockquote>
+</li>
+<li><p>element：根据给定的元素名匹配元素</p>
+<blockquote>
+<ul>
+<li>例： $(“div”)选取所有div元素</li>
+</ul>
+</blockquote>
+</li>
+<li><p>selector1,selector2,….. :将每一个选择匹配到的元素合并后一起返回</p>
+<blockquote>
+<ul>
+<li>例： $(“ div,span,p”) 选取所有div，span，p元素</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p><a href="http://www.w3school.com.cn/jquery/jquery_ref_selectors.asp" target="_blank" rel="external">点击查看更多选择器</a></p>
+<h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><blockquote>
+<p>事件处理程序指的是当 HTML 中发生某些事件时所调用的方法</p>
+</blockquote>
+<ul>
+<li><p>鼠标移入/移出事件(hover)</p>
+<ul>
+<li><p>语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(selector).hover(function()&#123;</div><div class="line">//鼠标移入时执行的代码；</div><div class="line">&#125;，function()&#123;</div><div class="line">//鼠标移出时执行的代码；</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(“div”).hover(function()&#123;</div><div class="line">$(“ ul”).slideDown();//鼠标经过div，ul展开</div><div class="line">&#125;,function()&#123;</div><div class="line">$(“ ul”).slideUp();//鼠标移开div，ul收起</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>单击事件(click)</p>
+<ul>
+<li>语法<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(selector).click(function( )&#123;/*单击被选元素时执行的代码*/；&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>获得/失去焦点事件 (focus/blur)</p>
+</li>
+<li>鼠标移入/移出(mouseover/mouseout)</li>
+<li>滚动事件 scroll()</li>
+<li>重置resize()<blockquote>
+<p>以上事件的语法格式均不click事件相同，只需要修改事件名</p>
+</blockquote>
+</li>
+</ul>
+<p><a href="http://www.w3school.com.cn/jquery/jquery_ref_events.asp" target="_blank" rel="external">点击查看更多事件方法</a></p>
+<h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><ul>
+<li><p>显示/隐藏  show()/hide()</p>
+<ul>
+<li><p>语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(selector).hide(speed,callback);</div></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li><p>可选的 speed 参数规定隐藏/显示的速度，可以取以下值：<br>“slow”、 “fast” 或 毫秒。</p>
+</li>
+<li><p>可选的 callback 参数是隐藏或显示完成后所执行的凼数名称。</p>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//无参数：</div><div class="line">$(“div”). hover(function()&#123;</div><div class="line">	$(“p”).show()</div><div class="line">&#125;，function()&#123;</div><div class="line">	$(“p”).hide()</div><div class="line">&#125;)</div><div class="line"></div><div class="line">//有参数：</div><div class="line">$(&quot;div&quot;).hover(function()&#123;</div><div class="line">	$(&quot;p&quot;).show(500,showalert)</div><div class="line">&#125;,function()&#123;</div><div class="line">	$(&quot;p&quot;).hide(500,hidealert)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>下边没有写语法的均不显示/隐藏语法相同，只需改方法名</p>
+</li>
+<li>下边speed,callback没有注释均不以上解释相同</li>
+</ul>
+</li>
+<li><p>显示/隐藏toggle()</p>
+<blockquote>
+<ul>
+<li>toggle() 方法可用来切换hide()和show()</li>
+</ul>
+</blockquote>
+</li>
+<li><p>淡入/淡出fadeIn()/fadeOut()</p>
+</li>
+<li><p>淡入/淡出切换fadeToggle()</p>
+<ul>
+<li>fadeToggle() 方法可以在fadeIn()不fadeOut()方法之间进行切换</li>
+</ul>
+</li>
+<li><p>有透明度的淡入/淡出fadeTo()</p>
+<ul>
+<li><p>语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(selector).fadeTo(speed,opacity,callback);</div></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>speed为必选项 参数规定效果的时长。它可以取以下值：”slow”、”fast” 或毫秒。</li>
+<li>opacity为必选项 参数将淡入淡出效果设置为给定的不透明度：（值介于 0 不 1 之间）。</li>
+<li>可选的 callback 参数是该凼数完成后所执行的凼数名称。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(“div”).fadeTo(“slow”,0.5)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>上/下滑动slideUp()/slideDown()</p>
+</li>
+<li><p>上/下滑动切换slideToggle()</p>
+<blockquote>
+<ul>
+<li>slideToggle() 方法可以在 slideDown() 不 slideUp()方法之间进行切换</li>
+</ul>
+</blockquote>
+</li>
+<li><p>动画animate()</p>
+<ul>
+<li><p>语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(selector).animate(&#123;params&#125;,speed,callback);</div></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>animate() 方法用于创建自定义动画</li>
+<li>必选项 params 参数定义形成动画的 CSS 属性</li>
+<li>speed，callback 参数用法均与上面相同生成动画的过程中可同时使用多个属性</li>
+</ul>
+</blockquote>
+</li>
+<li><p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$(“div”).click(function()&#123;</div><div class="line">	$(this).animate(&#123;</div><div class="line">		width:&quot;500px&quot;,</div><div class="line">		height:&quot;300px&quot;,</div><div class="line">		color:&quot;#fff&quot;</div><div class="line">	&#125;,500)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>停止动画（stop()）</p>
+<ul>
+<li><p>语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(selector).stop(stopAll,goToEnd);</div></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li><p>可选的 stopAll 参数规定是否应该清除动画队列。默认是 false，即仅停止活动的动画，允许任何排入队列的动画向后执行。</p>
+</li>
+<li><p>可选的 goToEnd 参数规定是否立即完成当前动画。默认是 false。</p>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>jQuery stop() 方法用于停止动画或效果，在它们完成之前。</p>
+</li>
+<li>stop() 方法适用于所有 jQuery 效果函数，包括滑动、淡入淡出和自定义动画。</li>
+</ul>
+</li>
+<li><p>延迟delay()</p>
+<ul>
+<li><p>语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(selector).delay(speed,queueName)</div></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>delay() 方法对队列中的下一项的执行设置延迟。speed不上相同，queueName可选。规定队列的名称。默认是 “ fx” ，标准效果队列，一般不用。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(“ div”).show().delay().hide();</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>方法链接(chaining)</p>
+<ul>
+<li><p>chaining是一种链接技术，允许我们在相同的元素上运行多条 jQuery 命令，一条接着另一条</p>
+</li>
+<li><p>例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&quot;div&quot;).css(&quot;background&quot;,&quot;#00f&quot;).slideUp(2000).slideDown(2000);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>$(this)</p>
+<ul>
+<li><p>$(this)：代表的上下文对象是一个jquery的上下文对象，可以调用jquery的方法和属性值。</p>
+</li>
+<li><p>例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$(&quot;#textbox&quot;).hover(function()&#123;</div><div class="line">$(this).css(&quot;width&quot;,&quot;200px&quot;);//等同于$(&quot;#textbox&quot;).css(&quot;width&quot;,&quot;</div><div class="line">&#125;,function()&#123;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/jQuery/">jQuery</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-01-24T03:14:07.488Z"><a href="/2018/01/24/dom_event/">2018-01-24</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2018/01/24/dom_event/">DOM事件</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="DOM事件常用方法"><a href="#DOM事件常用方法" class="headerlink" title="DOM事件常用方法"></a>DOM事件常用方法</h3><ul>
+<li><p>鼠标事件</p>
+<blockquote>
+<ul>
+<li>onchange    用户改变域的内容    </li>
+<li>onclick    鼠标点击某个对象</li>
+<li>ondblclick    鼠标双击某个对象</li>
+<li>onmousedown    某个鼠标按键被按下</li>
+<li>onmousemove    鼠标被移动</li>
+<li>onmouseout    鼠标从某元素移开</li>
+<li>onmouseover    鼠标被移到某元素之上</li>
+<li>onmouseup    某个鼠标按键被松开</li>
+<li>onfocus    元素获得焦点</li>
+<li>onblur    元素失去焦点</li>
+<li>onreset    重置按钮被点击</li>
+<li>onresize    窗口或框架被调整尺寸</li>
+<li>onselect    文本被选定</li>
+<li>onsubmit    提交按钮被点击</li>
+<li>onload    某个页面或图像被完成加载</li>
+<li>onerror    当加载文档或图像时发生某个错误</li>
+</ul>
+</blockquote>
+</li>
+<li><p>键盘事件</p>
+<blockquote>
+<ul>
+<li>onkeydown    某个键盘的键被按下</li>
+<li>onkeyup    某个键盘的键被松开</li>
+<li>onkeypress    某个键盘的键被按下或按住</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">      document.onkeydown=function(event)&#123;</div><div class="line">            var e = event || window.event || arguments.callee.caller.arguments[0];</div><div class="line">             if(e &amp;&amp; e.keyCode==27)&#123; // 按 Esc </div><div class="line">                //要做的事情</div><div class="line">             &#125;</div><div class="line">             if(e &amp;&amp; e.keyCode==113)&#123; // 按 F2 </div><div class="line">                 //要做的事情</div><div class="line">                &#125;            </div><div class="line">             if(e &amp;&amp; e.keyCode==13)&#123; // enter 键</div><div class="line">                  //要做的事情</div><div class="line">           &#125;</div><div class="line">        &#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>keyCode码：只要你定义了这些键的动作，你在浏览器里按下这些键就会响应，兼容目前所有浏览器。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div></pre></td><td class="code"><pre><div class="line">keyCode 8 = BackSpace BackSpace</div><div class="line">keyCode 9 = Tab Tab</div><div class="line">keyCode 12 = Clear</div><div class="line">keyCode 13 = Enter</div><div class="line">keyCode 16 = Shift_L</div><div class="line">keyCode 17 = Control_L</div><div class="line">keyCode 18 = Alt_L</div><div class="line">keyCode 19 = Pause</div><div class="line">keyCode 20 = Caps_Lock</div><div class="line">keyCode 27 = Escape Escape</div><div class="line">keyCode 32 = space</div><div class="line">keyCode 33 = Prior</div><div class="line">keyCode 34 = Next</div><div class="line">keyCode 35 = End</div><div class="line">keyCode 36 = Home</div><div class="line">keyCode 37 = Left</div><div class="line">keyCode 38 = Up</div><div class="line">keyCode 39 = Right</div><div class="line">keyCode 40 = Down</div><div class="line">keyCode 41 = Select</div><div class="line">keyCode 42 = Print</div><div class="line">keyCode 43 = Execute</div><div class="line">keyCode 45 = Insert</div><div class="line">keyCode 46 = Delete</div><div class="line">keyCode 47 = Help</div><div class="line">keyCode 48 = 0 equal braceright</div><div class="line">keyCode 49 = 1 exclam onesuperior</div><div class="line">keyCode 50 = 2 quotedbl twosuperior</div><div class="line">keyCode 51 = 3 section threesuperior</div><div class="line">keyCode 52 = 4 dollar</div><div class="line">keyCode 53 = 5 percent</div><div class="line">keyCode 54 = 6 ampersand</div><div class="line">keyCode 55 = 7 slash braceleft</div><div class="line">keyCode 56 = 8 parenleft bracketleft</div><div class="line">keyCode 57 = 9 parenright bracketright</div><div class="line">keyCode 65 = a A</div><div class="line">keyCode 66 = b B</div><div class="line">keyCode 67 = c C</div><div class="line">keyCode 68 = d D</div><div class="line">keyCode 69 = e E EuroSign</div><div class="line">keyCode 70 = f F</div><div class="line">keyCode 71 = g G</div><div class="line">keyCode 72 = h H</div><div class="line">keyCode 73 = i I</div><div class="line">keyCode 74 = j J</div><div class="line">keyCode 75 = k K</div><div class="line">keyCode 76 = l L</div><div class="line">keyCode 77 = m M mu</div><div class="line">keyCode 78 = n N</div><div class="line">keyCode 79 = o O</div><div class="line">keyCode 80 = p P</div><div class="line">keyCode 81 = q Q at</div><div class="line">keyCode 82 = r R</div><div class="line">keyCode 83 = s S</div><div class="line">keyCode 84 = t T</div><div class="line">keyCode 85 = u U</div><div class="line">keyCode 86 = v V</div><div class="line">keyCode 87 = w W</div><div class="line">keyCode 88 = x X</div><div class="line">keyCode 89 = y Y</div><div class="line">keyCode 90 = z Z</div><div class="line">keyCode 96 = KP_0 KP_0</div><div class="line">keyCode 97 = KP_1 KP_1</div><div class="line">keyCode 98 = KP_2 KP_2</div><div class="line">keyCode 99 = KP_3 KP_3</div><div class="line">keyCode 100 = KP_4 KP_4</div><div class="line">keyCode 101 = KP_5 KP_5</div><div class="line">keyCode 102 = KP_6 KP_6</div><div class="line">keyCode 103 = KP_7 KP_7</div><div class="line">keyCode 104 = KP_8 KP_8</div><div class="line">keyCode 105 = KP_9 KP_9</div><div class="line">keyCode 106 = KP_Multiply KP_Multiply</div><div class="line">keyCode 107 = KP_Add KP_Add</div><div class="line">keyCode 108 = KP_Separator KP_Separator</div><div class="line">keyCode 109 = KP_Subtract KP_Subtract</div><div class="line">keyCode 110 = KP_Decimal KP_Decimal</div><div class="line">keyCode 111 = KP_Divide KP_Divide</div><div class="line">keyCode 112 = F1</div><div class="line">keyCode 113 = F2</div><div class="line">keyCode 114 = F3</div><div class="line">keyCode 115 = F4</div><div class="line">keyCode 116 = F5</div><div class="line">keyCode 117 = F6</div><div class="line">keyCode 118 = F7</div><div class="line">keyCode 119 = F8</div><div class="line">keyCode 120 = F9</div><div class="line">keyCode 121 = F10</div><div class="line">keyCode 122 = F11</div><div class="line">keyCode 123 = F12</div><div class="line">keyCode 124 = F13</div><div class="line">keyCode 125 = F14</div><div class="line">keyCode 126 = F15</div><div class="line">keyCode 127 = F16</div><div class="line">keyCode 128 = F17</div><div class="line">keyCode 129 = F18</div><div class="line">keyCode 130 = F19</div><div class="line">keyCode 131 = F20</div><div class="line">keyCode 132 = F21</div><div class="line">keyCode 133 = F22</div><div class="line">keyCode 134 = F23</div><div class="line">keyCode 135 = F24</div><div class="line">keyCode 136 = Num_Lock</div><div class="line">keyCode 137 = Scroll_Lock</div><div class="line">keyCode 187 = acute grave</div><div class="line">keyCode 188 = comma semicolon</div><div class="line">keyCode 189 = minus underscore</div><div class="line">keyCode 190 = period colon</div><div class="line">keyCode 192 = numbersign apostrophe</div><div class="line">keyCode 210 = plusminus hyphen macron</div><div class="line">keyCode 211 =</div><div class="line">keyCode 212 = copyright registered</div><div class="line">keyCode 213 = guillemotleft guillemotright</div><div class="line">keyCode 214 = masculine ordfeminine</div><div class="line">keyCode 215 = ae AE</div><div class="line">keyCode 216 = cent yen</div><div class="line">keyCode 217 = questiondown exclamdown</div><div class="line">keyCode 218 = onequarter onehalf threequarters</div><div class="line">keyCode 220 = less greater bar</div><div class="line">keyCode 221 = plus asterisk asciitilde</div><div class="line">keyCode 227 = multiply division</div><div class="line">keyCode 228 = acircumflex Acircumflex</div><div class="line">keyCode 229 = ecircumflex Ecircumflex</div><div class="line">keyCode 230 = icircumflex Icircumflex</div><div class="line">keyCode 231 = ocircumflex Ocircumflex</div><div class="line">keyCode 232 = ucircumflex Ucircumflex</div><div class="line">keyCode 233 = ntilde Ntilde</div><div class="line">keyCode 234 = yacute Yacute</div><div class="line">keyCode 235 = oslash Ooblique</div><div class="line">keyCode 236 = aring Aring</div><div class="line">keyCode 237 = ccedilla Ccedilla</div><div class="line">keyCode 238 = thorn THORN</div><div class="line">keyCode 239 = eth ETH</div><div class="line">keyCode 240 = diaeresis cedilla currency</div><div class="line">keyCode 241 = agrave Agrave atilde Atilde</div><div class="line">keyCode 242 = egrave Egrave</div><div class="line">keyCode 243 = igrave Igrave</div><div class="line">keyCode 244 = ograve Ograve otilde Otilde</div><div class="line">keyCode 245 = ugrave Ugrave</div><div class="line">keyCode 246 = adiaeresis Adiaeresis</div><div class="line">keyCode 247 = ediaeresis Ediaeresis</div><div class="line">keyCode 248 = idiaeresis Idiaeresis</div><div class="line">keyCode 249 = odiaeresis Odiaeresis</div><div class="line">keyCode 250 = udiaeresis Udiaeresis</div><div class="line">keyCode 251 = ssharp question backslash</div><div class="line">keyCode 252 = asciicircum degree</div><div class="line">keyCode 253 = 3 sterling</div><div class="line">keyCode 254 = Mode_switch</div></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/DOM/">DOM</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-01-06T16:00:00.000Z"><a href="/2018/01/07/dom_node/">2018-01-07</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2018/01/07/dom_node/">DOM节点</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="DOM节点操作常用方法"><a href="#DOM节点操作常用方法" class="headerlink" title="DOM节点操作常用方法"></a>DOM节点操作常用方法</h3><ol>
+<li><p>创建节点<br>createElement()<br><code>var node = document.createElement(“div”);</code><br>创建一个元素节点，但注意，这个节点不会被自动添加到文档（document）里。</p>
+</li>
+<li><p>创建文本节点<br>createTextNode()<br><code>var value = document.createTextNode(“text”);</code><br>创建一个文本节点，常用来往元素节点里添加内容，也不会自动添加到文档里。<br>很多人知道innerHTML，不知道这个方法，这个添加的是静态文本，如果插入的内容不带HTML格式，用createTextNode比innerHTML安全，而innerText又有浏览器不兼容的问题，因此用createTextNode很好使。</p>
+</li>
+<li><p>插入节点到最后<br>appendChild()<br><code>node.appendChild(value);</code><br>将节点插入到最后，上面两个创建的节点不会自动添加到文档里，所以就要使appendChild来插入了。<br>如果是新的节点是插入到最后，而如果是已经存在的节点则是移动到最后，这点很多人注意不到，理解了这点，再和下面的方法结合，可以方便的移动操作节点。</p>
+</li>
+<li><p>插入节点到目标节点的前面<br>insertBefore()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var node = document.createElement(“div”);</div><div class="line">var _p = document.createElement(“p”);</div><div class="line">var _span = document.createElement(“span”);</div><div class="line">node.appendChild(_p);</div><div class="line">node.insertBefore(_span, _p);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><code>&lt;span&gt;</code>节点在<code>&lt;p&gt;</code>节点前面插入，其中第二个参数是可选，如果第二个参数不写，将默认添加到文档的最后，相当于appendChild。<br>同样，appendChild和insertBefore，如果是已存在节点，他们都会自动先删除原节点，然后移动到你指定的地方。</p>
+<ul>
+<li>将节点移动到最前面的技巧：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">if (node.parentNode.firstChild)&#123;</div><div class="line">	node.parentNode.insertBefore(node, node.parentNode.firstChild);</div><div class="line">&#125;else&#123;</div><div class="line">	node.parentNode.appendChild(node);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>5.复制节点<br>cloneNode(boolean)<br><code>node.cloneNode(true);</code><br><code>node.cloneNode(false);</code><br>复制上面的div节点，参数true，复制整个节点和里面的内容；false，只复制节点不要里面的内容，复制后的新节点，也不会被自动插入到文档，需要用到3和4的方法去插入。</p>
+<p>6.删除节点<br>removeChild()<br><code>node.removeChild(_p);</code><br>把上面的<code>&lt;p&gt;</code>节点从<code>&lt;div&gt;</code>里删除。不过一般情况下，不知道要删除的节点的父节点是什么，因此一般这么使：<br><code>node.parentNode.removeChild(node);</code></p>
+<p>7.替换节点<br>repalceChild(newNode, oldNode)<br><code>node.repalceChild(_p, _span);</code><br>把上面的<code>&lt;span&gt;</code>节点替换成<code>&lt;p&gt;</code>节点，注意无论是<code>&lt;span&gt;</code>还是<code>&lt;p&gt;</code>，都必须是<code>&lt;div&gt;</code>的子节点，或是一个新的节点。</p>
+<p>8.设置节点属性<br>setAttribute()<br><code>node.setAttribute(&quot;title&quot;,&quot;abc&quot;);</code><br>不解释了，很容易明白。就说一句，用这个方法设置节点属性兼容好，但class属性不能这么设置。</p>
+<p>9.获取节点属性<br>getAttribute()<br><code>node.getAttribute(&quot;title&quot;);</code><br>同8，获取节点属性。</p>
+<p>10.判断元素是否有子节点<br>hasChildNodes<br><code>node.hasChildNodes;</code><br>返回boolean类型，因此将新节点插入到最前面的技巧：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var node = document.createElement(“div”);</div><div class="line">var newNode = document.createElement(“p”);</div><div class="line">if (node.hasChildNodes)&#123; </div><div class="line">	node.insertBefore(newNode, node.firstChild);</div><div class="line">&#125;else &#123;</div><div class="line">	node.appendChild(newNode);</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<ul>
+<li>最后是DOM的属性：</li>
+</ul>
+<blockquote>
+<ul>
+<li>nodeName - 节点的名字；</li>
+<li>nodeType - 返回一个整数，代表这个节点的类型，1-元素节点，2-属性节点，3-文本节点；</li>
+<li>nodeValue - 返回一个字符串，这个节点的值；</li>
+<li>childNodes - 返回一个数组，数组由元素节点的子节点构成；</li>
+<li>firstChild - 返回第一个子节点；</li>
+<li>lastChild - 返回最后一个子节点；</li>
+<li>nextSibling - 返回目标节点的下一个兄弟节点，如果目标节点后面没有同属于一个父节点的节点，返回null；</li>
+<li>previousSibling - 返回目标节点的前一个兄弟节点，如果目标节点前面没有同属于一个父节点的节点，返回null；</li>
+<li>parentNode - 返回的节点永远是一个元素节点，因为只有元素节点才有可能有子节点，document节点将返回null；</li>
+</ul>
+</blockquote>
+<h3 id="JavaScript操作DOM-建立增加删除克隆访问节点示例："><a href="#JavaScript操作DOM-建立增加删除克隆访问节点示例：" class="headerlink" title="JavaScript操作DOM 建立增加删除克隆访问节点示例："></a>JavaScript操作DOM 建立增加删除克隆访问节点示例：</h3><ol>
+<li><p>getElementById(id)<br>这是通过id来访问某一元素，最常用的之一，例： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">    &lt;body&gt;</div><div class="line">    	&lt;div id=&quot;myid&quot;&gt;test&lt;/div&gt;</div><div class="line">        &lt;script&gt;</div><div class="line">        	alert(document.getElementById(&quot;myid&quot;).innerHTML);</div><div class="line">        &lt;/script&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>注意点：如果元素的ID不是唯一，则会取得第一个该ID名称的元素  </p>
+</li>
+<li><p>getElementsByName(name)     </p>
+<p> 这是通过name来取得某一堆元素（作为数组），看 Element后面有个小s就知道了，ID是HTML文档中要求唯一的，name可以不是唯一，如checkbox、radio等地方会用到多个 input用同一个name来识别是否为同党。</p>
+</li>
+<li><p>getElementsByTagName(tagname)<br> 看这方法就知道这也是取得某一堆元素（作为数组），是通过TagName也就是标签名来取得。你可以遍历这个数组获得每一个单独的元素。当一个DOM结构很大时，可以通过它来有效地缩小搜查范围。     </p>
+</li>
+<li><p>appendChild(node)</p>
+<p>   向当前的元素（应该叫对象比较恰当）追加节点。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">    &lt;body&gt;</div><div class="line">	    &lt;div id=&quot;test&quot;&gt;&lt;/div&gt;</div><div class="line">	    &lt;script&gt;</div><div class="line">	        var newdiv=document.createElement(&quot;div&quot;);</div><div class="line">	        var newtext=document.createTextNode(&quot;A newdiv&quot;);     </div><div class="line">			newdiv.appendChild(newtext);</div><div class="line">	        document.getElementById(&quot;test&quot;).appendChild(newdiv);</div><div class="line">	    &lt;/script&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>5.removeChild(childreference)<br>删除当前节点的子节点，返回被删除的节点。<br>这个被删除的节点可以被插入到别的地方<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">    &lt;body&gt;</div><div class="line">    	&lt;div id=&quot;parent&quot;&gt;</div><div class="line">    		&lt;div id=&quot;child&quot;&gt;Achild&lt;/div&gt;</div><div class="line">    	&lt;/div&gt;</div><div class="line">   		&lt;script&gt;</div><div class="line">			var childnode=document.getElementById(&quot;child&quot;);</div><div class="line">   			var removednode=document.getElementById(&quot;parent&quot;).removeChild(childnode);</div><div class="line">		&lt;/script&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p>6.cloneNode(deepBoolean)<br>    复制并返回当前节点的复制节点，复制节点是一个孤立节点，它复制了原节点的属性，在把这个新节点加入到document前，根据需要修改ID属性确保其ID的唯一。<br>    这个方法支持一个布尔参数，当deepBoolean设置true时，复制当前节点的所有子节点，包括该节点内的文本。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">    &lt;body&gt;</div><div class="line">    	&lt;p id=&quot;mynode&quot;&gt;test&lt;/p&gt;</div><div class="line">	    &lt;script&gt;</div><div class="line">		    p=document.getElementById(&quot;mynode&quot;);</div><div class="line">		    pclone =p.cloneNode(true);</div><div class="line">		    p.parentNode.appendChild(pclone);</div><div class="line">	    &lt;/script&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p>7.replaceChild(newChild, oldChild)<br>    把当前节点的一个子节点换成另一个节点<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">    &lt;body&gt;</div><div class="line">    	&lt;div id=&quot;mynode2&quot;&gt;</div><div class="line">    		&lt;span id=&quot;orispan&quot;&gt;span&lt;/span&gt;</div><div class="line">    	&lt;/div&gt;</div><div class="line">	    &lt;script&gt;</div><div class="line">	    	var orinode=document.getElementById(&quot;orispan&quot;);</div><div class="line">	    	var newnode=document.createElement(&quot;p&quot;);</div><div class="line">	    	var text=document.createTextNode(&quot;test ppp&quot;);</div><div class="line">	    	newnode.appendChild(text);</div><div class="line">	    	document.getElementById(&quot;mynode2&quot;).replaceChild(newnode,orinode);</div><div class="line">	    &lt;/script&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/DOM/">DOM</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-01-05T16:00:00.000Z"><a href="/2018/01/06/bom/">2018-01-06</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2018/01/06/bom/">BOM</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="BOM常用对象方法"><a href="#BOM常用对象方法" class="headerlink" title="BOM常用对象方法"></a>BOM常用对象方法</h3><p>屏幕的有效宽：window.screen.availHeight<br>屏幕的有效高：window.screen.availWidth<br>网页可见区域宽：document.body.clientWidth<br>网页可见区域高：document.body.clientHeight<br>网页可见区域宽：document.body.offsetWidth (包括边线的宽)<br>网页可见区域高：document.body.offsetHeight (包括边线的宽)<br>网页正文全文宽：document.body.scrollWidth<br>网页正文全文高：document.body.scrollHeight<br>网页被卷去的高：document.body.scrollTop<br>网页被卷去的左：document.body.scrollLeft<br>网页正文部分上：window.screenTop<br>网页正文部分左：window.screenLeft<br>屏幕分辨率的高：window.screen.height<br>屏幕分辨率的宽：window.screen.width<br>屏幕可用工作区高度：window.screen.availHeight<br>屏幕可用工作区宽度：window.screen.availWidth<br>HTML精确定位:scrollLeft,scrollWidth,clientWidth,offsetWidth<br>scrollHeight: 获取对象的滚动高度。<br>scrollLeft:设置或获取位于对象左边界和窗口中目前可见内容的最左端之间的距离<br>scrollTop:设置或获取位于对象最顶端和窗口中可见内容的最顶端之间的距离<br>scrollWidth:获取对象的滚动宽度<br>offsetHeight:获取对象相对于版面或由父坐标 offsetParent 属性指定的父坐标的高度<br>offsetLeft:获取对象相对于版面或由 offsetParent 属性指定的父坐标的计算左侧位置<br>offsetTop:获取对象相对于版面或由 offsetTop 属性指定的父坐标的计算顶端位置<br>event.clientX 相对文档的水平座标<br>event.clientY 相对文档的垂直座标<br>event.offsetX 相对容器的水平坐标<br>event.offsetY 相对容器的垂直坐标<br>document.documentElement.scrollTop 垂直方向滚动的值<br>event.clientX+document.documentElement.scrollTop 相对文档的水平座标+垂直方向滚动的量<br>IE，FireFox 差异如下：<br>IE6.0、FF1.06+：<br>clientWidth = width + padding<br>clientHeight = height + padding<br>offsetWidth = width + padding + border<br>offsetHeight = height + padding + border<br>IE5.0/5.5：<br>clientWidth = width - border<br>clientHeight = height - border<br>offsetWidth = width<br>offsetHeight = height</p>
+<p>获取元素的宽高<br>var o = document.getElementById(“view”);<br>var h = o.offsetHeight; //高度<br>var w = o.offsetWidth; //宽度</p>
+<h3 id="Window-对象"><a href="#Window-对象" class="headerlink" title="Window 对象"></a>Window 对象</h3><h4 id="Window-对象表示浏览器中打开的窗口。如果文档包含框架（frame-或-iframe-标签），浏览器会为-HTML-文档创建一个-window-对象，并为每个框架创建一个额外的-window-对象"><a href="#Window-对象表示浏览器中打开的窗口。如果文档包含框架（frame-或-iframe-标签），浏览器会为-HTML-文档创建一个-window-对象，并为每个框架创建一个额外的-window-对象" class="headerlink" title="Window 对象表示浏览器中打开的窗口。如果文档包含框架（frame 或 iframe 标签），浏览器会为 HTML 文档创建一个 window 对象，并为每个框架创建一个额外的 window 对象"></a>Window 对象表示浏览器中打开的窗口。如果文档包含框架（frame 或 iframe 标签），浏览器会为 HTML 文档创建一个 window 对象，并为每个框架创建一个额外的 window 对象</h4><h4 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h4><blockquote>
+<ul>
+<li>innerHeight 返回窗口的文档显示区的高度</li>
+<li>innerWidth 返回窗口的文档显示区的宽度</li>
+<li>outerHeight 返回窗口的外部高度 包括滚动条、地址栏、收藏栏等</li>
+<li>outerwidth 返回窗口的外部宽度</li>
+<li>length 设置或返回窗口中的框架数量</li>
+<li>name 设置或返回窗口的名称。</li>
+<li>window.open() 打开的新网页，第二个参数就是此网页的name。</li>
+<li>iframe里面，name属性就是window的name</li>
+</ul>
+</blockquote>
+<h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><blockquote>
+<ul>
+<li>close() 关闭浏览器窗口</li>
+<li>alert() 显示带有一段消息和一个确认按钮的警告框</li>
+<li>confirm() 显示带有一段消息以及确认按钮和取消按钮的对话框</li>
+<li>prompt()显示可提示用户输入的对话框</li>
+<li>open() 打开一个新的浏览器窗口或查找一个已命名的窗口</li>
+<li>resizeBy() 按照指定的像素调整窗口的大小</li>
+<li>resizeTo() 把窗口的大小调整到指定的宽度和高度</li>
+<li>scrollBy() 按照指定的像素值来滚动内容</li>
+<li>scrollTo() 把内容滚动到指定的坐标</li>
+</ul>
+</blockquote>
+<h4 id="screen-对象包含有关客户端显示屏幕的信息"><a href="#screen-对象包含有关客户端显示屏幕的信息" class="headerlink" title="screen 对象包含有关客户端显示屏幕的信息"></a>screen 对象包含有关客户端显示屏幕的信息</h4><h4 id="属性-1"><a href="#属性-1" class="headerlink" title="属性"></a>属性</h4><blockquote>
+<ul>
+<li>height 返回显示屏幕的高度； width返回显示器屏幕的宽度</li>
+<li>availHeight 返回显示屏幕的高度 (除 Windows 任务栏之外)</li>
+<li>availWidth 返回显示屏幕的宽度 (除 Windows 任务栏之外)</li>
+<li>colorDepth 返回目标设备或缓冲器上的调色板的比特深度</li>
+<li>pixelDepth 返回显示屏幕的颜色分辨率（比特每像素）</li>
+</ul>
+</blockquote>
+<h3 id="Body对象"><a href="#Body对象" class="headerlink" title="Body对象"></a>Body对象</h3><h4 id="属性-2"><a href="#属性-2" class="headerlink" title="属性"></a>属性</h4><blockquote>
+<ul>
+<li>clientWidth网页可见区域宽</li>
+<li>clientHeight网页可见区域高</li>
+<li>scrollWidth网页正文全文宽</li>
+<li>scrollHeight网页正文全文高</li>
+<li>scrollTop网页被卷去的高</li>
+<li>scrollLeft网页被卷去的左</li>
+</ul>
+</blockquote>
+<h3 id="navigator对象"><a href="#navigator对象" class="headerlink" title="navigator对象"></a>navigator对象</h3><h4 id="navigator对象通常用于检测浏览器不操作系统的版本"><a href="#navigator对象通常用于检测浏览器不操作系统的版本" class="headerlink" title="navigator对象通常用于检测浏览器不操作系统的版本"></a>navigator对象通常用于检测浏览器不操作系统的版本</h4><h4 id="属性："><a href="#属性：" class="headerlink" title="属性："></a>属性：</h4><blockquote>
+<ul>
+<li>appCodeName返回浏览器的代码名</li>
+<li>appVersion返回浏览器的次级版本</li>
+<li>appName返回浏览器的名称</li>
+<li>language返回当前浏览器的语言</li>
+<li>platform 返回运行浏览器的操作系统平台</li>
+</ul>
+</blockquote>
+<h3 id="document对象"><a href="#document对象" class="headerlink" title="document对象"></a>document对象</h3><h4 id="document-对象是-Window-对象的一部分，包含整个htmlDOM-可通过-window-document-属性对其进行访问-也可以用document直接访问"><a href="#document-对象是-Window-对象的一部分，包含整个htmlDOM-可通过-window-document-属性对其进行访问-也可以用document直接访问" class="headerlink" title="document 对象是 Window 对象的一部分，包含整个htmlDOM,可通过 window.document 属性对其进行访问,也可以用document直接访问"></a>document 对象是 Window 对象的一部分，包含整个htmlDOM,可通过 window.document 属性对其进行访问,也可以用document直接访问</h4><h4 id="属性-3"><a href="#属性-3" class="headerlink" title="属性:"></a>属性:</h4><blockquote>
+<ul>
+<li>document.cookie 获取或设置cookie</li>
+<li>document.title 获取或设置title</li>
+<li>document.URL 获取或设置URL</li>
+</ul>
+</blockquote>
+<h3 id="Location-对象"><a href="#Location-对象" class="headerlink" title="Location 对象"></a>Location 对象</h3><h4 id="Location-对象对象包含有关当前-URL-的信息"><a href="#Location-对象对象包含有关当前-URL-的信息" class="headerlink" title="Location 对象对象包含有关当前 URL 的信息"></a>Location 对象对象包含有关当前 URL 的信息</h4><h4 id="属性-4"><a href="#属性-4" class="headerlink" title="属性"></a>属性</h4><blockquote>
+<ul>
+<li>hash设置或返回从井号 (#) 开始的 URL（锚）</li>
+<li>host设置或返回主机名和当前 URL 的端口号</li>
+<li>hostname设置或返回当前 URL 的主机名</li>
+<li>href设置或返回完整的 URL</li>
+<li>pathname设置或返回当前 URL 的路径部分</li>
+<li>port设置或返回当前 URL 的端口号</li>
+<li>protocol设置或返回当前 URL 的协议</li>
+<li>search设置或返回从问号 (?) 开始的 URL（查询部分）</li>
+</ul>
+</blockquote>
+<h4 id="方法-1"><a href="#方法-1" class="headerlink" title="方法"></a>方法</h4><blockquote>
+<ul>
+<li>assign() 加载新的文档</li>
+<li>reload() 重新加载当前文档</li>
+<li>replace() 用新的文档替换当前文档</li>
+</ul>
+</blockquote>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/BOM/">BOM</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-11-03T16:00:00.000Z"><a href="/2017/11/04/bibao/">2017-11-04</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/11/04/bibao/">闭包</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="什么是闭包？"><a href="#什么是闭包？" class="headerlink" title="什么是闭包？"></a>什么是闭包？</h3><blockquote>
+<ul>
+<li><p>从本意上来讲：就是封闭包裹的意思，而js中函数正好就是一个封闭包裹的空间，所以从广义上来讲认为任何一个函数都是一个闭包</p>
+</li>
+<li><p>从狭义上来讲：就是某个函数可以访问它外层的函数中定义的变量，认为这个函数就是一个闭包函数</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="在函数外部自然无法读取函数内的局部变量，如何从外部读取局部变量？"><a href="#在函数外部自然无法读取函数内的局部变量，如何从外部读取局部变量？" class="headerlink" title="在函数外部自然无法读取函数内的局部变量，如何从外部读取局部变量？"></a>在函数外部自然无法读取函数内的局部变量，如何从外部读取局部变量？</h3><blockquote>
+<ul>
+<li>在函数的内部，再定义一个函数，并把内部函数作为返回值，这样就能从外部访问函数内部变量了</li>
+</ul>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function f1()&#123;</div><div class="line">n=999;</div><div class="line">function f2()&#123;</div><div class="line">alert(n);</div><div class="line">&#125;</div><div class="line">return f2;</div><div class="line">&#125;</div><div class="line">var result=f1();</div><div class="line">result(); // 999</div></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>闭包就是能够读取其他函数内部变量的函数</li>
+</ul>
+</blockquote>
+<h3 id="闭包的用途"><a href="#闭包的用途" class="headerlink" title="闭包的用途:"></a>闭包的用途:</h3><blockquote>
+<ul>
+<li>读取函数内部的变量</li>
+<li>让这些变量的值始终保持在内存中(优缺共存)</li>
+<li>避免全局变量的污染</li>
+</ul>
+</blockquote>
+<h3 id="使用闭包时的注意点"><a href="#使用闭包时的注意点" class="headerlink" title="使用闭包时的注意点"></a>使用闭包时的注意点</h3><blockquote>
+<ul>
+<li>由于闭包会使得函数中的变量都被保存在内存中，内存消耗很大，所以不能滥用闭包，否则会造成网页的性能问题，在IE中可能导致内存泄露。解决方法是，在退出函数之前，将不使用的局部变量全部删除。</li>
+<li>闭包会在父函数外部，改变父函数内部变量的值。所以，如果你把父函数当作对象（object）使用，把闭包当作它的公用方法（Public Method），把内部变量当作它的私有属性（private value），这时一定要小心，不要随便改变父函数内部变量的值</li>
+</ul>
+</blockquote>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/闭包/">闭包</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2017-10-13T16:00:00.000Z"><a href="/2017/10/14/Ajax/">2017-10-14</a></time>
       
       
@@ -566,15 +1204,23 @@
   <ul class="entry">
     
       <li>
-        <a href="/2017/10/14/Ajax/">AJAX</a>
+        <a href="/2018/01/24/jQuery/">jQuery</a>
       </li>
     
       <li>
-        <a href="/2017/10/12/markdown/">Markdown</a>
+        <a href="/2018/01/24/dom_event/">DOM事件</a>
       </li>
     
       <li>
-        <a href="/2017/10/12/hello-world/">Hello World</a>
+        <a href="/2018/01/07/dom_node/">DOM节点</a>
+      </li>
+    
+      <li>
+        <a href="/2018/01/06/bom/">BOM</a>
+      </li>
+    
+      <li>
+        <a href="/2017/11/04/bibao/">闭包</a>
       </li>
     
   </ul>
@@ -592,13 +1238,21 @@
   
     <li><a href="/tags/AJAX-JavaScript-XML-异步/">AJAX JavaScript XML 异步</a><small>0</small></li>
   
+    <li><a href="/tags/BOM/">BOM</a><small>1</small></li>
+  
+    <li><a href="/tags/DOM/">DOM</a><small>2</small></li>
+  
     <li><a href="/tags/JavaScript/">JavaScript</a><small>1</small></li>
   
     <li><a href="/tags/Markdown/">Markdown</a><small>1</small></li>
   
     <li><a href="/tags/XML/">XML</a><small>0</small></li>
   
+    <li><a href="/tags/jQuery/">jQuery</a><small>1</small></li>
+  
     <li><a href="/tags/异步/">异步</a><small>0</small></li>
+  
+    <li><a href="/tags/闭包/">闭包</a><small>1</small></li>
   
   </ul>
 </div>
@@ -608,7 +1262,7 @@
 <div class="widget tagcloud">
   <h3 class="title">Tag-Cloud</h3>
   <div class="entry">
-    <a href="/tags/AJAX/" style="font-size: 10px;">AJAX</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a>
+    <a href="/tags/AJAX/" style="font-size: 10px;">AJAX</a> <a href="/tags/BOM/" style="font-size: 10px;">BOM</a> <a href="/tags/DOM/" style="font-size: 20px;">DOM</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a>
   </div>
 </div>
 
@@ -652,7 +1306,7 @@
         bottom: -60px;
       }
     </style>
-    <script>loadlive2d("live2dcanvas" ,"/live2d/assets/tororo/tororo.model.json",0.5)</script>
+    <script>loadlive2d("live2dcanvas" ,"/live2d/assets/wanko/wanko.model.json",0.5)</script>
   
 </body>
 </html>

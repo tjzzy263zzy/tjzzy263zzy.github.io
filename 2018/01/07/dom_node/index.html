@@ -1,0 +1,278 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8" />
+  
+  <title>DOM节点 | Keyboarding at night</title>
+  <meta name="author" content="周志尧" />
+
+  
+  <meta name="description" content="代码心得，学习笔记" />
+  
+
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <meta property="og:title" content="DOM节点" />
+  <meta property="og:site_name" content="Keyboarding at night" />
+
+  
+  
+
+  
+    <meta property="og:image" content="" />
+  
+
+  
+  <link href="/css/images/favicon.ico" rel="icon" />
+  
+
+  <link rel="alternate" href="/atom.xml" title="Keyboarding at night" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Keyboarding at night</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-01-06T16:00:00.000Z"><a href="/2018/01/07/dom_node/">2018-01-07</a></time>
+      
+      
+  
+    <h1 class="title">DOM节点</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="DOM节点操作常用方法"><a href="#DOM节点操作常用方法" class="headerlink" title="DOM节点操作常用方法"></a>DOM节点操作常用方法</h3><ol>
+<li><p>创建节点<br>createElement()<br><code>var node = document.createElement(“div”);</code><br>创建一个元素节点，但注意，这个节点不会被自动添加到文档（document）里。</p>
+</li>
+<li><p>创建文本节点<br>createTextNode()<br><code>var value = document.createTextNode(“text”);</code><br>创建一个文本节点，常用来往元素节点里添加内容，也不会自动添加到文档里。<br>很多人知道innerHTML，不知道这个方法，这个添加的是静态文本，如果插入的内容不带HTML格式，用createTextNode比innerHTML安全，而innerText又有浏览器不兼容的问题，因此用createTextNode很好使。</p>
+</li>
+<li><p>插入节点到最后<br>appendChild()<br><code>node.appendChild(value);</code><br>将节点插入到最后，上面两个创建的节点不会自动添加到文档里，所以就要使appendChild来插入了。<br>如果是新的节点是插入到最后，而如果是已经存在的节点则是移动到最后，这点很多人注意不到，理解了这点，再和下面的方法结合，可以方便的移动操作节点。</p>
+</li>
+<li><p>插入节点到目标节点的前面<br>insertBefore()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var node = document.createElement(“div”);</div><div class="line">var _p = document.createElement(“p”);</div><div class="line">var _span = document.createElement(“span”);</div><div class="line">node.appendChild(_p);</div><div class="line">node.insertBefore(_span, _p);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><code>&lt;span&gt;</code>节点在<code>&lt;p&gt;</code>节点前面插入，其中第二个参数是可选，如果第二个参数不写，将默认添加到文档的最后，相当于appendChild。<br>同样，appendChild和insertBefore，如果是已存在节点，他们都会自动先删除原节点，然后移动到你指定的地方。</p>
+<ul>
+<li>将节点移动到最前面的技巧：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">if (node.parentNode.firstChild)&#123;</div><div class="line">	node.parentNode.insertBefore(node, node.parentNode.firstChild);</div><div class="line">&#125;else&#123;</div><div class="line">	node.parentNode.appendChild(node);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>5.复制节点<br>cloneNode(boolean)<br><code>node.cloneNode(true);</code><br><code>node.cloneNode(false);</code><br>复制上面的div节点，参数true，复制整个节点和里面的内容；false，只复制节点不要里面的内容，复制后的新节点，也不会被自动插入到文档，需要用到3和4的方法去插入。</p>
+<p>6.删除节点<br>removeChild()<br><code>node.removeChild(_p);</code><br>把上面的<code>&lt;p&gt;</code>节点从<code>&lt;div&gt;</code>里删除。不过一般情况下，不知道要删除的节点的父节点是什么，因此一般这么使：<br><code>node.parentNode.removeChild(node);</code></p>
+<p>7.替换节点<br>repalceChild(newNode, oldNode)<br><code>node.repalceChild(_p, _span);</code><br>把上面的<code>&lt;span&gt;</code>节点替换成<code>&lt;p&gt;</code>节点，注意无论是<code>&lt;span&gt;</code>还是<code>&lt;p&gt;</code>，都必须是<code>&lt;div&gt;</code>的子节点，或是一个新的节点。</p>
+<p>8.设置节点属性<br>setAttribute()<br><code>node.setAttribute(&quot;title&quot;,&quot;abc&quot;);</code><br>不解释了，很容易明白。就说一句，用这个方法设置节点属性兼容好，但class属性不能这么设置。</p>
+<p>9.获取节点属性<br>getAttribute()<br><code>node.getAttribute(&quot;title&quot;);</code><br>同8，获取节点属性。</p>
+<p>10.判断元素是否有子节点<br>hasChildNodes<br><code>node.hasChildNodes;</code><br>返回boolean类型，因此将新节点插入到最前面的技巧：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var node = document.createElement(“div”);</div><div class="line">var newNode = document.createElement(“p”);</div><div class="line">if (node.hasChildNodes)&#123; </div><div class="line">	node.insertBefore(newNode, node.firstChild);</div><div class="line">&#125;else &#123;</div><div class="line">	node.appendChild(newNode);</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<ul>
+<li>最后是DOM的属性：</li>
+</ul>
+<blockquote>
+<ul>
+<li>nodeName - 节点的名字；</li>
+<li>nodeType - 返回一个整数，代表这个节点的类型，1-元素节点，2-属性节点，3-文本节点；</li>
+<li>nodeValue - 返回一个字符串，这个节点的值；</li>
+<li>childNodes - 返回一个数组，数组由元素节点的子节点构成；</li>
+<li>firstChild - 返回第一个子节点；</li>
+<li>lastChild - 返回最后一个子节点；</li>
+<li>nextSibling - 返回目标节点的下一个兄弟节点，如果目标节点后面没有同属于一个父节点的节点，返回null；</li>
+<li>previousSibling - 返回目标节点的前一个兄弟节点，如果目标节点前面没有同属于一个父节点的节点，返回null；</li>
+<li>parentNode - 返回的节点永远是一个元素节点，因为只有元素节点才有可能有子节点，document节点将返回null；</li>
+</ul>
+</blockquote>
+<h3 id="JavaScript操作DOM-建立增加删除克隆访问节点示例："><a href="#JavaScript操作DOM-建立增加删除克隆访问节点示例：" class="headerlink" title="JavaScript操作DOM 建立增加删除克隆访问节点示例："></a>JavaScript操作DOM 建立增加删除克隆访问节点示例：</h3><ol>
+<li><p>getElementById(id)<br>这是通过id来访问某一元素，最常用的之一，例： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">    &lt;body&gt;</div><div class="line">    	&lt;div id=&quot;myid&quot;&gt;test&lt;/div&gt;</div><div class="line">        &lt;script&gt;</div><div class="line">        	alert(document.getElementById(&quot;myid&quot;).innerHTML);</div><div class="line">        &lt;/script&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>注意点：如果元素的ID不是唯一，则会取得第一个该ID名称的元素  </p>
+</li>
+<li><p>getElementsByName(name)     </p>
+<p> 这是通过name来取得某一堆元素（作为数组），看 Element后面有个小s就知道了，ID是HTML文档中要求唯一的，name可以不是唯一，如checkbox、radio等地方会用到多个 input用同一个name来识别是否为同党。</p>
+</li>
+<li><p>getElementsByTagName(tagname)<br> 看这方法就知道这也是取得某一堆元素（作为数组），是通过TagName也就是标签名来取得。你可以遍历这个数组获得每一个单独的元素。当一个DOM结构很大时，可以通过它来有效地缩小搜查范围。     </p>
+</li>
+<li><p>appendChild(node)</p>
+<p>   向当前的元素（应该叫对象比较恰当）追加节点。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">    &lt;body&gt;</div><div class="line">	    &lt;div id=&quot;test&quot;&gt;&lt;/div&gt;</div><div class="line">	    &lt;script&gt;</div><div class="line">	        var newdiv=document.createElement(&quot;div&quot;);</div><div class="line">	        var newtext=document.createTextNode(&quot;A newdiv&quot;);     </div><div class="line">			newdiv.appendChild(newtext);</div><div class="line">	        document.getElementById(&quot;test&quot;).appendChild(newdiv);</div><div class="line">	    &lt;/script&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>5.removeChild(childreference)<br>删除当前节点的子节点，返回被删除的节点。<br>这个被删除的节点可以被插入到别的地方<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">    &lt;body&gt;</div><div class="line">    	&lt;div id=&quot;parent&quot;&gt;</div><div class="line">    		&lt;div id=&quot;child&quot;&gt;Achild&lt;/div&gt;</div><div class="line">    	&lt;/div&gt;</div><div class="line">   		&lt;script&gt;</div><div class="line">			var childnode=document.getElementById(&quot;child&quot;);</div><div class="line">   			var removednode=document.getElementById(&quot;parent&quot;).removeChild(childnode);</div><div class="line">		&lt;/script&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p>6.cloneNode(deepBoolean)<br>    复制并返回当前节点的复制节点，复制节点是一个孤立节点，它复制了原节点的属性，在把这个新节点加入到document前，根据需要修改ID属性确保其ID的唯一。<br>    这个方法支持一个布尔参数，当deepBoolean设置true时，复制当前节点的所有子节点，包括该节点内的文本。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">    &lt;body&gt;</div><div class="line">    	&lt;p id=&quot;mynode&quot;&gt;test&lt;/p&gt;</div><div class="line">	    &lt;script&gt;</div><div class="line">		    p=document.getElementById(&quot;mynode&quot;);</div><div class="line">		    pclone =p.cloneNode(true);</div><div class="line">		    p.parentNode.appendChild(pclone);</div><div class="line">	    &lt;/script&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p>7.replaceChild(newChild, oldChild)<br>    把当前节点的一个子节点换成另一个节点<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;html&gt;</div><div class="line">    &lt;body&gt;</div><div class="line">    	&lt;div id=&quot;mynode2&quot;&gt;</div><div class="line">    		&lt;span id=&quot;orispan&quot;&gt;span&lt;/span&gt;</div><div class="line">    	&lt;/div&gt;</div><div class="line">	    &lt;script&gt;</div><div class="line">	    	var orinode=document.getElementById(&quot;orispan&quot;);</div><div class="line">	    	var newnode=document.createElement(&quot;p&quot;);</div><div class="line">	    	var text=document.createTextNode(&quot;test ppp&quot;);</div><div class="line">	    	newnode.appendChild(text);</div><div class="line">	    	document.getElementById(&quot;mynode2&quot;).replaceChild(newnode,orinode);</div><div class="line">	    &lt;/script&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/DOM/">DOM</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Suche">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">Neueste Artikel</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2018/01/24/jQuery/">jQuery</a>
+      </li>
+    
+      <li>
+        <a href="/2018/01/24/dom_event/">DOM事件</a>
+      </li>
+    
+      <li>
+        <a href="/2018/01/07/dom_node/">DOM节点</a>
+      </li>
+    
+      <li>
+        <a href="/2018/01/06/bom/">BOM</a>
+      </li>
+    
+      <li>
+        <a href="/2017/11/04/bibao/">闭包</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/AJAX-JavaScript-XML-异步/">-AJAX -JavaScript -XML -异步</a><small>0</small></li>
+  
+    <li><a href="/tags/AJAX/">AJAX</a><small>1</small></li>
+  
+    <li><a href="/tags/AJAX-JavaScript-XML-异步/">AJAX JavaScript XML 异步</a><small>0</small></li>
+  
+    <li><a href="/tags/BOM/">BOM</a><small>1</small></li>
+  
+    <li><a href="/tags/DOM/">DOM</a><small>2</small></li>
+  
+    <li><a href="/tags/JavaScript/">JavaScript</a><small>1</small></li>
+  
+    <li><a href="/tags/Markdown/">Markdown</a><small>1</small></li>
+  
+    <li><a href="/tags/XML/">XML</a><small>0</small></li>
+  
+    <li><a href="/tags/jQuery/">jQuery</a><small>1</small></li>
+  
+    <li><a href="/tags/异步/">异步</a><small>0</small></li>
+  
+    <li><a href="/tags/闭包/">闭包</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">Tag-Cloud</h3>
+  <div class="entry">
+    <a href="/tags/AJAX/" style="font-size: 10px;">AJAX</a> <a href="/tags/BOM/" style="font-size: 10px;">BOM</a> <a href="/tags/DOM/" style="font-size: 20px;">DOM</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a>
+  </div>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  <p>
+  
+  &copy; 2018 周志尧
+  
+  All rights reserved.</p>
+  <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</div>
+<div class="clearfix"></div>
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id='bg'></div>
+  
+    <script type="text/javascript" src="/live2d/script.js"></script>
+    <canvas id="live2dcanvas" width="150" height="300" class="live2d"></canvas>
+    <style>
+      #live2dcanvas {
+        position: fixed;
+        right: 0px;
+        z-index: 999;
+        pointer-events: none;
+        bottom: -60px;
+      }
+    </style>
+    <script>loadlive2d("live2dcanvas" ,"/live2d/assets/wanko/wanko.model.json",0.5)</script>
+  
+</body>
+</html>
