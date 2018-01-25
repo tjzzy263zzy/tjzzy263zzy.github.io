@@ -1,0 +1,503 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8" />
+  
+  <title>jQuery | Keyboarding at night</title>
+  <meta name="author" content="周志尧" />
+
+  
+  <meta name="description" content="代码心得，学习笔记" />
+  
+
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <meta property="og:title" content="jQuery" />
+  <meta property="og:site_name" content="Keyboarding at night" />
+
+  
+  
+
+  
+    <meta property="og:image" content="" />
+  
+
+  
+  <link href="/css/images/favicon.ico" rel="icon" />
+  
+
+  <link rel="alternate" href="/atom.xml" title="Keyboarding at night" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Keyboarding at night</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-01-25T02:33:29.399Z"><a href="/2018/01/25/jQuery3/">2018-01-25</a></time>
+      
+      
+  
+    <h1 class="title">jQuery</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h3><blockquote>
+<p>jQuery 遍历 ：用于根据其相对于其他元素的关系来“查找”（或选取）HTML 元素 。以某项选择开始，并沿着这个选择移动，直到抵达期望的元素为止。<br>jQ遍历分为四种，1. 想上遍历 2. 向下遍历 3. 过滤 4. 水平遍历</p>
+</blockquote>
+<ul>
+<li><p>.eq() 过滤遍历</p>
+<ul>
+<li><p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&apos;li&apos;).eq(0).css(&apos;background&apos;,&apos;red&apos;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>说明：</p>
+<blockquote>
+<ul>
+<li>查找获取到所有li标签中的第几个，从零开始</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>.first() 过滤遍历</p>
+<ul>
+<li><p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&apos;li&apos;).first().css(&apos;background&apos;,&apos;red&apos;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>说明：</p>
+<blockquote>
+<ul>
+<li>查找获取到所有li标签中的第一个</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>.last() 过滤遍历</p>
+<ul>
+<li><p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&apos;li&apos;).last().css(&apos;background&apos;,&apos;red&apos;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>说明：</p>
+<blockquote>
+<ul>
+<li>查找获取到所有li标签中的最后一个</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>.slice() 过滤遍历</p>
+<ul>
+<li><p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&apos;li&apos;).slice(2,4).css(&apos;background&apos;,&apos;red&apos;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>说明：</p>
+<blockquote>
+<ul>
+<li>查找获取到所有li标签中的第几个到第几个，下标从零开始，要头不要尾</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>.children(“选择器”) 向下遍历</p>
+<ul>
+<li><p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&apos;ul&apos;).children(&apos;div&apos;).css(&apos;background&apos;,&apos;red&apos;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>说明：</p>
+<blockquote>
+<ul>
+<li>查找获取到所有ul标签中的所有【直接子元素】是选择器的元素</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>.find(“选择器”) 向下遍历</p>
+<ul>
+<li><p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&apos;ul&apos;).find(&apos;div&apos;).css(&apos;background&apos;,&apos;red&apos;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>说明：</p>
+<blockquote>
+<ul>
+<li>查找获取到所有ul标签中的所有后代是选择器的元素</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>.parent() 向上遍历</p>
+<ul>
+<li><p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&apos;ul&apos;).parent().css(&apos;background&apos;,&apos;red&apos;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>说明：</p>
+<blockquote>
+<ul>
+<li>返回ul的直接父元素</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="更多遍历方法"><a href="#更多遍历方法" class="headerlink" title="更多遍历方法"></a>更多遍历方法</h3><ul>
+<li>向上遍历 （查找元素祖先）</li>
+</ul>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">遍历方法</th>
+<th style="text-align:left">描述</th>
+<th style="text-align:left">举例说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">parent()</td>
+<td style="text-align:left">返回被选元素的直接父元素 (只会向下一级对 DOM 树进行遍历 )</td>
+<td style="text-align:left">$(“span”).parent();</td>
+</tr>
+<tr>
+<td style="text-align:left">parents()</td>
+<td style="text-align:left">返回被选元素的所有祖先元素，它一路向上直到文档的根元素 (<html>)</html></td>
+<td style="text-align:left">$(“span”).parents();$(“span”).parents(“ul”)返回所有 <span> 元素的所有祖先，并且它是<ul> 元素</ul></span></td>
+</tr>
+<tr>
+<td style="text-align:left">parentsUntil()</td>
+<td style="text-align:left">返回介于两个给定元素之间的所有祖先元素</td>
+<td style="text-align:left">$(“span”).parentsUntil(“div”);</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<ul>
+<li>向下遍历（查找元素后代）</li>
+</ul>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">遍历方法</th>
+<th style="text-align:left">描述</th>
+<th style="text-align:left">举例说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">children()</td>
+<td style="text-align:left">返回被选元素的所有直接子元素(只会向下一级对 DOM 树进行遍历 )</td>
+<td style="text-align:left">$(“div”).children()$(“div”).children(“p.1”)返回类名为 “1” 的所有 <p> 元素，并且它们是<div> 的直接子元素</div></p></td>
+</tr>
+<tr>
+<td style="text-align:left">find()</td>
+<td style="text-align:left">返回被选元素的后代元素，一路向下直到最后一个后代</td>
+<td style="text-align:left">$(“div”).find(“span”);$(“div”).find(“*”);返回 <div> 的所有后代</div></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<ul>
+<li>水平遍历方法(元素同胞元素)：</li>
+</ul>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">遍历方法</th>
+<th style="text-align:left">描述</th>
+<th style="text-align:left">举例说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">siblings()</td>
+<td style="text-align:left">返回被选元素的所有同胞元素</td>
+<td style="text-align:left">$(“h2”).siblings();$(“h2”).siblings(“p”),返回属于<code>&lt;h2&gt;</code>的同胞元素的所有<code>&lt;p&gt;</code>元素 </td>
+</tr>
+<tr>
+<td style="text-align:left">next()/prev()</td>
+<td style="text-align:left">返回被选元素的下一个/上一个同胞元素</td>
+<td style="text-align:left">$(“h2”).next();</td>
+</tr>
+<tr>
+<td style="text-align:left">nextAll()/prevAll()</td>
+<td style="text-align:left">返回被选元素的所有跟随的同胞（前面同胞）元素</td>
+<td style="text-align:left">$(“h2”).nextAll();</td>
+</tr>
+<tr>
+<td style="text-align:left">nextUntil()/prevUntil()</td>
+<td style="text-align:left">返回介于两个给定参数之间的所有跟随的同胞（前面同胞）元素</td>
+<td style="text-align:left">$(“h2”).nextUntil(“h6”);</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<ul>
+<li>过滤：</li>
+</ul>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">遍历方法</th>
+<th style="text-align:left">描述</th>
+<th style="text-align:left">举例说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">first()</td>
+<td style="text-align:left">返回被选元素的首个元素</td>
+<td style="text-align:left">$(“div p”).first();</td>
+</tr>
+<tr>
+<td style="text-align:left">last()</td>
+<td style="text-align:left">返回被选元素的最后一个元素</td>
+<td style="text-align:left">$(“div p”).last();</td>
+</tr>
+<tr>
+<td style="text-align:left">eq()</td>
+<td style="text-align:left">返回被选元素中带有指定索引号的元素</td>
+<td style="text-align:left">$(“p”).eq(1);</td>
+</tr>
+<tr>
+<td style="text-align:left">filter()</td>
+<td style="text-align:left">不匹配这个标准的元素会被从集合中删除，匹配的元素会被返回</td>
+<td style="text-align:left">$(“p”).filter(“.intro”);</td>
+</tr>
+<tr>
+<td style="text-align:left">not()</td>
+<td style="text-align:left">返回不匹配标准的所有元素not() 方法与 filter() 相反。</td>
+<td style="text-align:left">$(“p”).not(“.intro”);</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<ul>
+<li><p>each遍历：</p>
+<ul>
+<li><p>each()方法规定为每个匹配元素指定运行的函数</p>
+<blockquote>
+<ul>
+<li>语法</li>
+</ul>
+</blockquote>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(selector).each(function(index,element))</div></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>例如 </li>
+</ul>
+</blockquote>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(&quot;button&quot;).click(function()&#123;</div><div class="line">	$(&quot;li&quot;).each(function()&#123;</div><div class="line">		alert($(this).text())</div><div class="line">    &#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/jQuery/">jQuery</a>, <a href="/tags/jQuery遍历/">jQuery遍历</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Suche">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">Kategorien</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/Diary/">Diary</a><small>0</small></li>
+  
+    <li><a href="/categories/Diary/Life/">Life</a><small>0</small></li>
+  
+    <li><a href="/categories/a/Life/">Life</a><small>0</small></li>
+  
+    <li><a href="/categories/a/">a</a><small>0</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Neueste Artikel</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2018/01/25/jQuery3/">jQuery</a>
+      </li>
+    
+      <li>
+        <a href="/2018/01/25/jQuery2/">jQuery</a>
+      </li>
+    
+      <li>
+        <a href="/2018/01/24/jQuery/">jQuery</a>
+      </li>
+    
+      <li>
+        <a href="/2018/01/24/dom_event/">DOM事件</a>
+      </li>
+    
+      <li>
+        <a href="/2018/01/07/dom_node/">DOM节点</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/AJAX-JavaScript-XML-异步/">-AJAX -JavaScript -XML -异步</a><small>0</small></li>
+  
+    <li><a href="/tags/AJAX/">AJAX</a><small>1</small></li>
+  
+    <li><a href="/tags/AJAX-JavaScript-XML-异步/">AJAX JavaScript XML 异步</a><small>0</small></li>
+  
+    <li><a href="/tags/BOM/">BOM</a><small>1</small></li>
+  
+    <li><a href="/tags/DOM/">DOM</a><small>2</small></li>
+  
+    <li><a href="/tags/JavaScript/">JavaScript</a><small>1</small></li>
+  
+    <li><a href="/tags/Markdown/">Markdown</a><small>1</small></li>
+  
+    <li><a href="/tags/XML/">XML</a><small>0</small></li>
+  
+    <li><a href="/tags/jQuery/">jQuery</a><small>3</small></li>
+  
+    <li><a href="/tags/jQuery-jQuery遍历/">jQuery jQuery遍历</a><small>0</small></li>
+  
+    <li><a href="/tags/jQuery基础、效果/">jQuery基础、效果</a><small>1</small></li>
+  
+    <li><a href="/tags/jQuery效果/">jQuery效果</a><small>0</small></li>
+  
+    <li><a href="/tags/jQuery遍历/">jQuery遍历</a><small>1</small></li>
+  
+    <li><a href="/tags/jQuery鼠标键盘事件/">jQuery鼠标键盘事件</a><small>1</small></li>
+  
+    <li><a href="/tags/异步/">异步</a><small>0</small></li>
+  
+    <li><a href="/tags/闭包/">闭包</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">Tag-Cloud</h3>
+  <div class="entry">
+    <a href="/tags/AJAX/" style="font-size: 10px;">AJAX</a> <a href="/tags/BOM/" style="font-size: 10px;">BOM</a> <a href="/tags/DOM/" style="font-size: 15px;">DOM</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/jQuery/" style="font-size: 20px;">jQuery</a> <a href="/tags/jQuery基础、效果/" style="font-size: 10px;">jQuery基础、效果</a> <a href="/tags/jQuery遍历/" style="font-size: 10px;">jQuery遍历</a> <a href="/tags/jQuery鼠标键盘事件/" style="font-size: 10px;">jQuery鼠标键盘事件</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a>
+  </div>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  <p>
+  
+  &copy; 2018 周志尧
+  
+  All rights reserved.</p>
+  <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</div>
+<div class="clearfix"></div>
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id='bg'></div>
+  
+    <script type="text/javascript" src="/live2d/script.js"></script>
+    <canvas id="live2dcanvas" width="150" height="300" class="live2d"></canvas>
+    <style>
+      #live2dcanvas {
+        position: fixed;
+        right: 0px;
+        z-index: 999;
+        pointer-events: none;
+        bottom: -60px;
+      }
+    </style>
+    <script>loadlive2d("live2dcanvas" ,"/live2d/assets/wanko/wanko.model.json",0.5)</script>
+  
+</body>
+</html>

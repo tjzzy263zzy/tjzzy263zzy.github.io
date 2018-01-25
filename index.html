@@ -64,6 +64,583 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2018-01-25T02:33:29.399Z"><a href="/2018/01/25/jQuery3/">2018-01-25</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2018/01/25/jQuery3/">jQuery</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h3><blockquote>
+<p>jQuery 遍历 ：用于根据其相对于其他元素的关系来“查找”（或选取）HTML 元素 。以某项选择开始，并沿着这个选择移动，直到抵达期望的元素为止。<br>jQ遍历分为四种，1. 想上遍历 2. 向下遍历 3. 过滤 4. 水平遍历</p>
+</blockquote>
+<ul>
+<li><p>.eq() 过滤遍历</p>
+<ul>
+<li><p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&apos;li&apos;).eq(0).css(&apos;background&apos;,&apos;red&apos;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>说明：</p>
+<blockquote>
+<ul>
+<li>查找获取到所有li标签中的第几个，从零开始</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>.first() 过滤遍历</p>
+<ul>
+<li><p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&apos;li&apos;).first().css(&apos;background&apos;,&apos;red&apos;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>说明：</p>
+<blockquote>
+<ul>
+<li>查找获取到所有li标签中的第一个</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>.last() 过滤遍历</p>
+<ul>
+<li><p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&apos;li&apos;).last().css(&apos;background&apos;,&apos;red&apos;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>说明：</p>
+<blockquote>
+<ul>
+<li>查找获取到所有li标签中的最后一个</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>.slice() 过滤遍历</p>
+<ul>
+<li><p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&apos;li&apos;).slice(2,4).css(&apos;background&apos;,&apos;red&apos;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>说明：</p>
+<blockquote>
+<ul>
+<li>查找获取到所有li标签中的第几个到第几个，下标从零开始，要头不要尾</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>.children(“选择器”) 向下遍历</p>
+<ul>
+<li><p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&apos;ul&apos;).children(&apos;div&apos;).css(&apos;background&apos;,&apos;red&apos;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>说明：</p>
+<blockquote>
+<ul>
+<li>查找获取到所有ul标签中的所有【直接子元素】是选择器的元素</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>.find(“选择器”) 向下遍历</p>
+<ul>
+<li><p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&apos;ul&apos;).find(&apos;div&apos;).css(&apos;background&apos;,&apos;red&apos;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>说明：</p>
+<blockquote>
+<ul>
+<li>查找获取到所有ul标签中的所有后代是选择器的元素</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>.parent() 向上遍历</p>
+<ul>
+<li><p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&apos;ul&apos;).parent().css(&apos;background&apos;,&apos;red&apos;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>说明：</p>
+<blockquote>
+<ul>
+<li>返回ul的直接父元素</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="更多遍历方法"><a href="#更多遍历方法" class="headerlink" title="更多遍历方法"></a>更多遍历方法</h3><ul>
+<li>向上遍历 （查找元素祖先）</li>
+</ul>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">遍历方法</th>
+<th style="text-align:left">描述</th>
+<th style="text-align:left">举例说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">parent()</td>
+<td style="text-align:left">返回被选元素的直接父元素 (只会向下一级对 DOM 树进行遍历 )</td>
+<td style="text-align:left">$(“span”).parent();</td>
+</tr>
+<tr>
+<td style="text-align:left">parents()</td>
+<td style="text-align:left">返回被选元素的所有祖先元素，它一路向上直到文档的根元素 (<html>)</html></td>
+<td style="text-align:left">$(“span”).parents();$(“span”).parents(“ul”)返回所有 <span> 元素的所有祖先，并且它是<ul> 元素</ul></span></td>
+</tr>
+<tr>
+<td style="text-align:left">parentsUntil()</td>
+<td style="text-align:left">返回介于两个给定元素之间的所有祖先元素</td>
+<td style="text-align:left">$(“span”).parentsUntil(“div”);</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<ul>
+<li>向下遍历（查找元素后代）</li>
+</ul>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">遍历方法</th>
+<th style="text-align:left">描述</th>
+<th style="text-align:left">举例说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">children()</td>
+<td style="text-align:left">返回被选元素的所有直接子元素(只会向下一级对 DOM 树进行遍历 )</td>
+<td style="text-align:left">$(“div”).children()$(“div”).children(“p.1”)返回类名为 “1” 的所有 <p> 元素，并且它们是<div> 的直接子元素</div></p></td>
+</tr>
+<tr>
+<td style="text-align:left">find()</td>
+<td style="text-align:left">返回被选元素的后代元素，一路向下直到最后一个后代</td>
+<td style="text-align:left">$(“div”).find(“span”);$(“div”).find(“*”);返回 <div> 的所有后代</div></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<ul>
+<li>水平遍历方法(元素同胞元素)：</li>
+</ul>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">遍历方法</th>
+<th style="text-align:left">描述</th>
+<th style="text-align:left">举例说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">siblings()</td>
+<td style="text-align:left">返回被选元素的所有同胞元素</td>
+<td style="text-align:left">$(“h2”).siblings();$(“h2”).siblings(“p”),返回属于<code>&lt;h2&gt;</code>的同胞元素的所有<code>&lt;p&gt;</code>元素 </td>
+</tr>
+<tr>
+<td style="text-align:left">next()/prev()</td>
+<td style="text-align:left">返回被选元素的下一个/上一个同胞元素</td>
+<td style="text-align:left">$(“h2”).next();</td>
+</tr>
+<tr>
+<td style="text-align:left">nextAll()/prevAll()</td>
+<td style="text-align:left">返回被选元素的所有跟随的同胞（前面同胞）元素</td>
+<td style="text-align:left">$(“h2”).nextAll();</td>
+</tr>
+<tr>
+<td style="text-align:left">nextUntil()/prevUntil()</td>
+<td style="text-align:left">返回介于两个给定参数之间的所有跟随的同胞（前面同胞）元素</td>
+<td style="text-align:left">$(“h2”).nextUntil(“h6”);</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<ul>
+<li>过滤：</li>
+</ul>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">遍历方法</th>
+<th style="text-align:left">描述</th>
+<th style="text-align:left">举例说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">first()</td>
+<td style="text-align:left">返回被选元素的首个元素</td>
+<td style="text-align:left">$(“div p”).first();</td>
+</tr>
+<tr>
+<td style="text-align:left">last()</td>
+<td style="text-align:left">返回被选元素的最后一个元素</td>
+<td style="text-align:left">$(“div p”).last();</td>
+</tr>
+<tr>
+<td style="text-align:left">eq()</td>
+<td style="text-align:left">返回被选元素中带有指定索引号的元素</td>
+<td style="text-align:left">$(“p”).eq(1);</td>
+</tr>
+<tr>
+<td style="text-align:left">filter()</td>
+<td style="text-align:left">不匹配这个标准的元素会被从集合中删除，匹配的元素会被返回</td>
+<td style="text-align:left">$(“p”).filter(“.intro”);</td>
+</tr>
+<tr>
+<td style="text-align:left">not()</td>
+<td style="text-align:left">返回不匹配标准的所有元素not() 方法与 filter() 相反。</td>
+<td style="text-align:left">$(“p”).not(“.intro”);</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<ul>
+<li><p>each遍历：</p>
+<ul>
+<li><p>each()方法规定为每个匹配元素指定运行的函数</p>
+<blockquote>
+<ul>
+<li>语法</li>
+</ul>
+</blockquote>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(selector).each(function(index,element))</div></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>例如 </li>
+</ul>
+</blockquote>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(&quot;button&quot;).click(function()&#123;</div><div class="line">	$(&quot;li&quot;).each(function()&#123;</div><div class="line">		alert($(this).text())</div><div class="line">    &#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/jQuery/">jQuery</a>, <a href="/tags/jQuery遍历/">jQuery遍历</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-01-25T01:46:59.300Z"><a href="/2018/01/25/jQuery2/">2018-01-25</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2018/01/25/jQuery2/">jQuery</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="鼠标键盘事件"><a href="#鼠标键盘事件" class="headerlink" title="鼠标键盘事件"></a>鼠标键盘事件</h3><ul>
+<li>鼠标事件</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">事件名称</th>
+<th style="text-align:left">描述</th>
+<th style="text-align:left">举例说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">mousedown</td>
+<td style="text-align:left">当鼠标指针移动到元素上方，并按下鼠标按键时，会发生 mousedown事件</td>
+<td style="text-align:left">$(“button”).mousedown(function(){$(“p”).slideToggle()</td>
+</tr>
+<tr>
+<td style="text-align:left">mouseup</td>
+<td style="text-align:left">当在元素上放松鼠标按钮时，会发生mouseup 事件</td>
+<td style="text-align:left">$(“button”).mouseup(function(){$(“p”).slideToggle();})</td>
+</tr>
+<tr>
+<td style="text-align:left">mouseenter</td>
+<td style="text-align:left">当鼠标指针穿过元素时，会发生mouseenter 事件</td>
+<td style="text-align:left">$(“p”).mouseenter(function(){$(“p”).css(“backgroundcolor”,”yellow”); });</td>
+</tr>
+<tr>
+<td style="text-align:left">mousemove</td>
+<td style="text-align:left">当鼠标指针在指定的元素中移动时，就会发生 mousemove 事件</td>
+<td style="text-align:left">$(“button”).mousemove(function(){})</td>
+</tr>
+<tr>
+<td style="text-align:left">event.pageX</td>
+<td style="text-align:left">pageX() 属性是鼠标指针的位置，相对于文档的左边缘</td>
+<td style="text-align:left">$(document).mousemove(function(e){$(“span”).text(“X: “ +e.pageX});</td>
+</tr>
+<tr>
+<td style="text-align:left">event.pageY</td>
+<td style="text-align:left">pageY()    属性是鼠标指针的位置，相对于文档的上边缘</td>
+<td style="text-align:left">$(document).mousemove(function(e){ $(“span”).text(“Y: “ +e.pageY});</td>
+</tr>
+<tr>
+<td style="text-align:left">mouseover</td>
+<td style="text-align:left">当鼠标指针位于元素上方时，会发生mouseover 事件</td>
+<td style="text-align:left">$(“button”).mouseover(function(){})</td>
+</tr>
+<tr>
+<td style="text-align:left">event.preventDefault();</td>
+<td style="text-align:left">阻止元素发生默认的行为</td>
+<td style="text-align:left">$(“a”).click(function(event){event.preventDefault(); });</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>键盘事件</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">事件名称</th>
+<th style="text-align:left">描述</th>
+<th style="text-align:left">举例说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">keydown</td>
+<td style="text-align:left">当按钮被按下时，发生 keydown 事件</td>
+<td style="text-align:left">$(“input”).keydown(function(){$(“input”).css(“color”,”#FFFFCC”); });</td>
+</tr>
+<tr>
+<td style="text-align:left">keypress</td>
+<td style="text-align:left">当按钮被按下时，会发生该事件。它发生在当前获得焦点的元素上</td>
+<td style="text-align:left">$(“input”).keypress(function(){$(“span”).text(i+=1);});</td>
+</tr>
+<tr>
+<td style="text-align:left">keyup</td>
+<td style="text-align:left">当按钮被松开时，发生 keyup 事件。它发生在当前获得焦点的元素上。</td>
+<td style="text-align:left">$(“input”).keyup(function(){$(“input”).css(“color”,”#D6D6FF”);});</td>
+</tr>
+</tbody>
+</table>
+<h3 id="标签的添加删除"><a href="#标签的添加删除" class="headerlink" title="标签的添加删除"></a>标签的添加删除</h3><ul>
+<li><p>添加元素：</p>
+<blockquote>
+<ul>
+<li>append() - 在被选元素的尾部插入内容</li>
+<li>appendTo() – 在被选元素的结尾（仍然在内部）插入指定内容</li>
+</ul>
+</blockquote>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$(“p”).append(“ World.”);</div><div class="line">//如p标签的原文本为:“Hello”</div><div class="line">//则现文本为： Hello World.等同于</div><div class="line">$(&quot;&lt;b&gt;World.&lt;/b&gt;&quot;).appendTo(&quot;p&quot;)</div></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>prepend() - 在被选元素的开头插入内容</li>
+<li>prependTo() - 在被选元素的开头（仍位于内部）插入指定内容</li>
+</ul>
+</blockquote>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$(“p”).prepend(“ 你好，”);</div><div class="line">//如p标签的原文本为:“ 李明”</div><div class="line">//则现文本为： 你好，李明等同于</div><div class="line">//$(&quot;你好&quot;).prependTo(&quot;p&quot;);</div></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>append()和prepend()方法添加若干新元素</li>
+</ul>
+</blockquote>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function appendText() &#123;</div><div class="line">var txt1=“&lt;p&gt;Text.&lt;/p&gt;”; // 以 HTML 创建新元素</div><div class="line">var txt2=$(“&lt;p&gt;&lt;/p&gt;”).text(“Text.”); // 以 jQuery 创建新元素</div><div class="line">var txt3=document.createElement(“p”); // 以DOM 创建新元素</div><div class="line">txt3.innerHTML=&quot;Text.&quot;;</div><div class="line">$(&quot;p&quot;).append(txt1,txt2,txt3); // 追加新元素 </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>after() – 在被选元素之后插入内容</li>
+<li>before – 在被选元素之前插入内容</li>
+<li>after()和before() 方法添加若干新元素</li>
+</ul>
+</blockquote>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function afterText() &#123;</div><div class="line">var txt1=“&lt;b&gt;I &lt;/b&gt;”; // 以 HTML 创建新元素</div><div class="line">var txt2=$(“&lt;i&gt;&lt;/i&gt;”).text(“love ”); // 通过 jQuery 创建新元素</div><div class="line">var txt3=document.createElement(“big”); // 通过 DOM 创建新元素</div><div class="line">txt3.innerHTML=&quot;jQuery!&quot;;</div><div class="line">$(&quot;img&quot;).after(txt1,txt2,txt3); // 在 img 之后插入新元素</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>思考问题：</p>
+<ul>
+<li><p>append()和preappend()与after()和before()区别：</p>
+<ul>
+<li><p>append() &amp; prepend()是在元素内插入内容（该内容变成该元素的子元素或节点）</p>
+</li>
+<li><p>after() &amp; before()是在元素的外面插入内容（其内容变成元素的兄弟节点）</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>删除元素</p>
+<ul>
+<li><p>remove() - 删除被选元素（及其子元素）</p>
+<blockquote>
+<ul>
+<li>例：$(“#div1”).remove(); //删除的是div1的</li>
+</ul>
+</blockquote>
+</li>
+<li><p>remove() – 过滤被删除的元素</p>
+</li>
+<li><p>remove() 方法也可接受一个参数，允许被删元素进行过滤。该参数可以是任何 jQuery 选择器的语法。</p>
+<blockquote>
+<ul>
+<li>$(“p”).remove(“.italic”);//删除 class=”italic” 的所有<code>&lt;p&gt;</code>元素</li>
+</ul>
+</blockquote>
+</li>
+<li><p>removeAttr()从被选元素中移除属性</p>
+<blockquote>
+<ul>
+<li>例：$(“p”).removeAttr(“id”);</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>属性的获取设置</p>
+<ul>
+<li><p>text() 、 html() 以及 val()</p>
+<blockquote>
+<ul>
+<li><p>获取内容语法：$(selector).text()</p>
+</li>
+<li><p>设置内容语法：$(selector).text(“设置内容” )</p>
+</li>
+</ul>
+<p>-其它两个方法语法一样</p>
+</blockquote>
+</li>
+<li><p>text()、 html() 以及 val()的回调函数</p>
+<blockquote>
+<ul>
+<li>回调函数由两个参数：被选元素列表中当前元素的下标，以及原始（旧的）值。然后以函数新值返回您希望使用的字符串。</li>
+</ul>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(&quot;#btn1&quot;).click(function()&#123;</div><div class="line">	$(&quot;#test1&quot;).text(function(i,origText)&#123;</div><div class="line">		return &quot;Old text: &quot; + origText + &quot; New text: Hello &quot; + &quot; world! (index: &quot; + i + &quot;)&quot;;</div><div class="line">	&#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>获取属性或设置属性  attr()</p>
+<ul>
+<li><p>获取属性语法：$(selector).attr(“ 属性名” )</p>
+<ul>
+<li>设置属性语法：$(selector).attr(“属性名”，“属性值” )</li>
+</ul>
+</li>
+<li><p>attr()的回调函数</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>&gt;- 回调函数有两个参数：被选元素列表中当前元素的下标，以及原始（旧的）值。然后以函数新值返回您希望使用的字符串
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(&quot;button&quot;).click(function()&#123;</div><div class="line">	$(&quot;#taobao&quot;).attr(&quot;href&quot;, function(i,origValue)&#123;</div><div class="line">		return origValue + &quot;/market/nvzhuang&quot;;</div><div class="line">	&#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</code></pre><ul>
+<li><p>css()方法设置或返回被选元素的一个或多个样式属性。</p>
+<ul>
+<li>返回CSS属性：</li>
+<li><p>语法：css(“ 属性名” )</p>
+<blockquote>
+<ul>
+<li>例：$(“p”).css(“color”)</li>
+</ul>
+</blockquote>
+</li>
+<li><p>设置CSS属性：</p>
+</li>
+<li><p>语法：css(“ 属性名”，“属性值” )</p>
+<blockquote>
+<ul>
+<li>例：$(“p”).css(“color” ，”#f00”)</li>
+</ul>
+</blockquote>
+</li>
+<li><p>设置多个CSS属性：</p>
+</li>
+<li>语法：css({“ 属性名”:“ 属性值” ,属性名”:“ 属性值” ,…})<blockquote>
+<ul>
+<li>例 $(“p”).css({“color”:”#f00”,”background”:”#00f”)</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>Class的添加删除</p>
+<ul>
+<li><p>addClass() – 向被选元素中添加一个或多个class类</p>
+</li>
+<li><p>removeClass() – 从被选元素删除一个或多个class类与addClass()用法相同</p>
+</li>
+<li><p>toggleClass() – 对被选元素进行添加/删除class类的切换操作</p>
+<blockquote>
+<ul>
+<li>该方法是对addClass()和removeClass()方法的切换</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/jQuery/">jQuery</a>, <a href="/tags/jQuery鼠标键盘事件/">jQuery鼠标键盘事件</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2018-01-24T03:39:22.827Z"><a href="/2018/01/24/jQuery/">2018-01-24</a></time>
       
       
@@ -97,7 +674,7 @@
 </li>
 </ul>
 </blockquote>
-<h3 id="JQuery语法"><a href="#JQuery语法" class="headerlink" title="JQuery语法:"></a>JQuery语法:</h3><p><code>$(selector).action()</code></p>
+<h3 id="jQuery语法"><a href="#jQuery语法" class="headerlink" title="jQuery语法:"></a>jQuery语法:</h3><p><code>$(selector).action()</code></p>
 <ul>
 <li>美元符号定义 jQuery</li>
 <li>选择符（selector）“查询”和“查找” HTML 元素</li>
@@ -308,7 +885,7 @@
         
   
   <div class="tags">
-    <a href="/tags/jQuery/">jQuery</a>
+    <a href="/tags/jQuery/">jQuery</a>, <a href="/tags/jQuery基础、效果/">jQuery基础、效果</a>
   </div>
 
         <!-- partial('post/share') -->
@@ -1197,11 +1774,34 @@
 </div>
 
   
+<div class="widget tag">
+  <h3 class="title">Kategorien</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/Diary/">Diary</a><small>0</small></li>
+  
+    <li><a href="/categories/Diary/Life/">Life</a><small>0</small></li>
+  
+    <li><a href="/categories/a/Life/">Life</a><small>0</small></li>
+  
+    <li><a href="/categories/a/">a</a><small>0</small></li>
+  
+  </ul>
+</div>
+
 
   
 <div class="widget tag">
   <h3 class="title">Neueste Artikel</h3>
   <ul class="entry">
+    
+      <li>
+        <a href="/2018/01/25/jQuery3/">jQuery</a>
+      </li>
+    
+      <li>
+        <a href="/2018/01/25/jQuery2/">jQuery</a>
+      </li>
     
       <li>
         <a href="/2018/01/24/jQuery/">jQuery</a>
@@ -1215,14 +1815,6 @@
         <a href="/2018/01/07/dom_node/">DOM节点</a>
       </li>
     
-      <li>
-        <a href="/2018/01/06/bom/">BOM</a>
-      </li>
-    
-      <li>
-        <a href="/2017/11/04/bibao/">闭包</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -1232,7 +1824,11 @@
   <h3 class="title">Tags</h3>
   <ul class="entry">
   
-    <li><a href="/tags/AJAX/">AJAX</a><small>1</small></li> 
+    <li><a href="/tags/AJAX-JavaScript-XML-异步/">-AJAX -JavaScript -XML -异步</a><small>0</small></li>
+  
+    <li><a href="/tags/AJAX/">AJAX</a><small>1</small></li>
+  
+    <li><a href="/tags/AJAX-JavaScript-XML-异步/">AJAX JavaScript XML 异步</a><small>0</small></li>
   
     <li><a href="/tags/BOM/">BOM</a><small>1</small></li>
   
@@ -1242,7 +1838,21 @@
   
     <li><a href="/tags/Markdown/">Markdown</a><small>1</small></li>
   
-    <li><a href="/tags/jQuery/">jQuery</a><small>1</small></li>
+    <li><a href="/tags/XML/">XML</a><small>0</small></li>
+  
+    <li><a href="/tags/jQuery/">jQuery</a><small>3</small></li>
+  
+    <li><a href="/tags/jQuery-jQuery遍历/">jQuery jQuery遍历</a><small>0</small></li>
+  
+    <li><a href="/tags/jQuery基础、效果/">jQuery基础、效果</a><small>1</small></li>
+  
+    <li><a href="/tags/jQuery效果/">jQuery效果</a><small>0</small></li>
+  
+    <li><a href="/tags/jQuery遍历/">jQuery遍历</a><small>1</small></li>
+  
+    <li><a href="/tags/jQuery鼠标键盘事件/">jQuery鼠标键盘事件</a><small>1</small></li>
+  
+    <li><a href="/tags/异步/">异步</a><small>0</small></li>
   
     <li><a href="/tags/闭包/">闭包</a><small>1</small></li>
   
@@ -1254,7 +1864,7 @@
 <div class="widget tagcloud">
   <h3 class="title">Tag-Cloud</h3>
   <div class="entry">
-    <a href="/tags/AJAX/" style="font-size: 10px;">AJAX</a> <a href="/tags/BOM/" style="font-size: 10px;">BOM</a> <a href="/tags/DOM/" style="font-size: 20px;">DOM</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a>
+    <a href="/tags/AJAX/" style="font-size: 10px;">AJAX</a> <a href="/tags/BOM/" style="font-size: 10px;">BOM</a> <a href="/tags/DOM/" style="font-size: 15px;">DOM</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/jQuery/" style="font-size: 20px;">jQuery</a> <a href="/tags/jQuery基础、效果/" style="font-size: 10px;">jQuery基础、效果</a> <a href="/tags/jQuery遍历/" style="font-size: 10px;">jQuery遍历</a> <a href="/tags/jQuery鼠标键盘事件/" style="font-size: 10px;">jQuery鼠标键盘事件</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a>
   </div>
 </div>
 
